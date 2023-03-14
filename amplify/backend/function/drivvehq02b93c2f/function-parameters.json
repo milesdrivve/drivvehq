@@ -1,0 +1,18 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "sesEmail",
+      "environmentVariableName": "SES_EMAIL"
+    }
+  ],
+  "permissions": {
+    "api": {
+      "drivvehq": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.app-layout-blank {
+  background: white;
+}
+
+.app-layout-blank .card {
+  border: none;
+  min-width: 350px;
+  max-width: 350px;
+}
