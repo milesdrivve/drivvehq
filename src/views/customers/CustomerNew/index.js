@@ -1,40 +1,45 @@
 import React from 'react'
 import ProductForm from 'views/customers/ProductForm'
-import ToDo from 'views/customers/ToDo'
-import ContactForm from 'views/customers/ContactForm'
+//import ToDo from 'views/customers/ToDo'
+//import ContactForm from 'views/customers/ContactForm'
 import { toast, Notification } from 'components/ui'
 import { useNavigate } from 'react-router-dom'
 import { apiCreateCustomer } from 'services/CustomerService'
+
+const openNotification = (title, message, type) => {
+  toast.push(
+      <Notification
+          title={title}
+          type={type}
+          duration={2500}
+      >
+          {message}
+      </Notification>
+  )
+}
 
 const CustomerNew = () => {
     const navigate = useNavigate()
 
     const addCustomer = async (data) => {
-        const response = await apiCreateCustomer(data)
+        const response = await apiCreateCustomer({input: data})
         return response.data
     }
 
     const handleFormSubmit = async (values, setSubmitting) => {
         console.log('submitting...')
+        console.log(values)
         setSubmitting(true)
-        //const success = await addCustomer(values)
-        //const success = true
+        const response = await addCustomer(values)
+        console.log(response)
+        //const response = true
         setSubmitting(false)
-        //if (success) {
-            toast.push(
-                <Notification
-                    title={'Successfuly added'}
-                    type="success"
-                    duration={2500}
-                >
-                    Customer successfuly added
-                </Notification>,
-                {
-                    placement: 'top-center',
-                }
-            )
+        if (response) {
+          openNotification("Success", "Customer added", "success")
             //navigate('/app/customers/customer-list')
-        //}
+        } else {
+          openNotification("Error", response, "danger")
+        }
     }
 
     const handleDiscard = () => {
@@ -43,13 +48,13 @@ const CustomerNew = () => {
 
     return (
         <>
-            <ContactForm />
-            <ToDo />
-            {/*<ProductForm
+            {/*<ContactForm />
+            <ToDo />*/}
+            <ProductForm
                 type="new"
                 onFormSubmit={handleFormSubmit}
                 onDiscard={handleDiscard}
-    />*/}
+            />
         </>
     )
 }

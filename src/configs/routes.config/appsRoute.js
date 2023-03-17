@@ -67,25 +67,34 @@ const appsRoute = [
       meta: {
           header: 'Add New Customer',
       },
-  },
-  {
-    key: 'appsCustomers.toDo',
-    path: `${APP_PREFIX_PATH}/customers/todo`,
-    component: React.lazy(() => import('views/customers/ToDo')),
-    authority: [ADMIN, USER],
-    meta: {
-        header: 'ToDo',
     },
-  },
-  {
-    key: 'appsCustomers.updateStatus',
-    path: `${APP_PREFIX_PATH}/customers/update-status`,
-    component: React.lazy(() => import('views/customers/UpdateStatus')),
-    authority: [ADMIN, USER],
-    meta: {
-        header: 'Update Status',
+    {
+      key: 'appsCustomers.toDo',
+      path: `${APP_PREFIX_PATH}/customers/todo`,
+      component: React.lazy(() => import('views/customers/ToDo')),
+      authority: [ADMIN, USER],
+      meta: {
+          header: 'ToDo',
+      },
     },
-  },
+    {
+      key: 'appsCustomers.updateStatus',
+      path: `${APP_PREFIX_PATH}/customers/update-status`,
+      component: React.lazy(() => import('views/customers/UpdateStatus')),
+      authority: [ADMIN, USER],
+      meta: {
+          header: 'Update Status',
+      },
+    },
+    {
+      key: 'appsCustomers.sendEmail',
+      path: `${APP_PREFIX_PATH}/customers/send-email`,
+      component: React.lazy(() => import('views/customers/SendEmail')),
+      authority: [ADMIN, USER],
+      meta: {
+          header: 'Send Email',
+      },
+    },
     {
         key: 'appsFleet.productList',
         path: `${APP_PREFIX_PATH}/fleet/product-list`,

@@ -18,7 +18,7 @@ const { TabNav, TabList, TabContent } = Tabs
 const { useUniqueId } = hooks
 
 const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name Required'),
+    //name: Yup.string().required('Name Required'),
     //price: Yup.number().required('Price Required'),
     //stock: Yup.number().required('SKU Required'),
     //category: Yup.string().required('Category Required'),
@@ -73,7 +73,7 @@ const DeleteProductButton = ({ onDelete }) => {
 const ProductForm = forwardRef((props, ref) => {
     const { type, initialData, onFormSubmit, onDiscard, onDelete } = props
 
-    const newId = useUniqueId('product-')
+    //const newId = useUniqueId('product-')
 
     return (
         <>
@@ -81,25 +81,28 @@ const ProductForm = forwardRef((props, ref) => {
                 innerRef={ref}
                 initialValues={{
                     ...initialData,
-                    tags: initialData?.tags
+                    /*tags: initialData?.tags
                         ? initialData.tags.map((value) => ({
                               label: value,
                               value,
                           }))
-                        : [],
+                        : [],*/
                 }}
-                validationSchema={validationSchema}
+                //validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
                     console.log('here 1')
                     const formData = cloneDeep(values)
-                    formData.tags = formData.tags.map((tag) => tag.value)
-                    if (type === 'new') {
+                    //formData.tags = formData.tags.map((tag) => tag.value)
+                    /*if (type === 'new') {
                         formData.id = newId
                         if (formData.imgList.length > 0) {
                             formData.img = formData.imgList[0].img
                         }
-                    }
+                    }*/
+                    console.log(formData)
+                    console.log('here 2')
                     onFormSubmit?.(formData, setSubmitting)
+                    console.log('here 3')
                 }}
             >
                 {({ values, touched, errors, isSubmitting }) => (
@@ -115,17 +118,17 @@ const ProductForm = forwardRef((props, ref) => {
                                         <TabContent value="tab1">
                                         <div className="grid grid-cols-12 lg:grid-cols-12 gap-4">
                                           <div className="lg:col-span-9">
-                                              <StatusFields
+                                              {/*<StatusFields
                                                     touched={touched}
                                                     errors={errors}
                                                     values={values}
-                                                />
+                />*/}
                                               <BasicInformationFields
                                                   touched={touched}
                                                   errors={errors}
                                                   values={values}
                                               />
-                                              <IdFields
+                                              {/*<IdFields
                                                   touched={touched}
                                                   errors={errors}
                                                   values={values}
@@ -134,14 +137,14 @@ const ProductForm = forwardRef((props, ref) => {
                                                   touched={touched}
                                                   errors={errors}
                                                   values={values}
-                                              />
+              />*/}
                                             </div>
                                             <div className="lg:col-span-3">
-                                            <Summary
+                                            {/*<Summary
                                                   touched={touched}
                                                   errors={errors}
                                                   values={values}
-                                              />
+            />*/}
                                             </div>
                                           </div>
                                         </TabContent>
@@ -200,7 +203,9 @@ const ProductForm = forwardRef((props, ref) => {
 ProductForm.defaultProps = {
     type: 'edit',
     initialData: {
-        id: '',
+      first_name: '',
+      last_name: '',
+        /*id: '',
         name: '',
         img: '',
         imgList: [],
@@ -216,7 +221,7 @@ ProductForm.defaultProps = {
         province: '',
         postal: '',
         drivers: '',
-        said: '',
+        said: '',*/
     },
 }
 

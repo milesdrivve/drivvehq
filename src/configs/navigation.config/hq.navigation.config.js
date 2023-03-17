@@ -85,6 +85,16 @@ const hqNavigationConfig = [
                     authority: [ADMIN, USER],
                     subMenu: [],
                   },
+                  {
+                    key: 'appsCustomers.sendEmail',
+                    path: `${APP_PREFIX_PATH}/customers/send-email`,
+                    title: 'Send email',
+                    translateKey: 'nav.appsCustomers.sendEmail',
+                    icon: '',
+                    type: NAV_ITEM_TYPE_ITEM,
+                    authority: [ADMIN, USER],
+                    subMenu: [],
+                  },
                   /*{
                       key: 'appsCustomers.productEdit',
                       path: `${APP_PREFIX_PATH}/customers/product-edit/12`,

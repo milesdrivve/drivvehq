@@ -13,6 +13,7 @@ const ProductNew = () => {
     }
 
     const handleFormSubmit = async (values, setSubmitting) => {
+        console.log('handleFormSubmit...')
         setSubmitting(true)
         const success = await addProduct(values)
         setSubmitting(false)

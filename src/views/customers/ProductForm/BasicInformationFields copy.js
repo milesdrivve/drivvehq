@@ -14,13 +14,13 @@ const BasicInformationFields = (props) => {
                 <div className="col-span-1">
                     <FormItem
                         label="First Name"
-                        invalid={errors.first_name && touched.first_name}
-                        errorMessage={errors.first_name}
+                        invalid={errors.firstName && touched.firstName}
+                        errorMessage={errors.firstName}
                     >
                         <Field
                             type="text"
                             autoComplete="off"
-                            name="first_name"
+                            name="firstName"
                             placeholder="First Name"
                             component={Input}
                         />
@@ -29,13 +29,13 @@ const BasicInformationFields = (props) => {
                 <div className="col-span-1">
                     <FormItem
                         label="Last Name"
-                        invalid={errors.last_name && touched.last_name}
-                        errorMessage={errors.last_name}
+                        invalid={errors.lastName && touched.lastName}
+                        errorMessage={errors.lastName}
                     >
                         <Field
                             type="text"
                             autoComplete="off"
-                            name="last_name"
+                            name="lastName"
                             placeholder="Last Name"
                             component={Input}
                         />

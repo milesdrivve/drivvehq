@@ -7,6 +7,15 @@ import TableTools from './components/TableTools'
 //import OrdersTableTools from './components/OrdersTableTools'
 //import ListDeleteConfirmation from './components/ListDeleteConfirmation'
 
+import appConfig from 'configs/app.config'
+import mockServer from 'mock'
+
+const environment = process.env.NODE_ENV
+
+if (appConfig.enableMock) {
+    mockServer({ environment })
+}
+
 injectReducer('customerList', reducer)
 
 const CustomersList = () => {
