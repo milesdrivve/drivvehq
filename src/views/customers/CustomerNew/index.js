@@ -22,7 +22,7 @@ const CustomerNew = () => {
     const navigate = useNavigate()
 
     const addCustomer = async (data) => {
-        const response = await apiCreateCustomer({input: data})
+        const response = await apiCreateCustomer({input:data})
         return response.data
     }
 
@@ -32,7 +32,6 @@ const CustomerNew = () => {
         setSubmitting(true)
         const response = await addCustomer(values)
         console.log(response)
-        //const response = true
         setSubmitting(false)
         if (response) {
           openNotification("Success", "Customer added", "success")

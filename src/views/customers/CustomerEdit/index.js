@@ -9,8 +9,21 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { getProduct } from './store/dataSlice'
 import ProductForm from 'views/customers/ProductForm'
 import isEmpty from 'lodash/isEmpty'
+import { apiUpdateCustomer, apiGetCustomer } from 'services/CustomerService'
 
 injectReducer('customerEdit', reducer)
+
+const openNotification = (title, message, type) => {
+  toast.push(
+      <Notification
+          title={title}
+          type={type}
+          duration={2500}
+      >
+          {message}
+      </Notification>
+  )
+}
 
 const CustomerEdit = () => {
     const dispatch = useDispatch()
@@ -23,9 +36,24 @@ const CustomerEdit = () => {
     )
     const loading = useSelector((state) => state.customerEdit.data.loading)
 
-    const fetchData = (data) => {
-        dispatch(getProduct(data))
+    //const fetchData = (data) => {
+        //dispatch(getProduct(data))
+    //    dispatch(getCustomer({input:data}))
+    //}
+
+    const fetchData = async (data) => {
+      console.log('fetchData')
+      console.log(data)
+      dispatch(getProduct(data))
+      const response = await apiGetCustomer(data)
+      console.log(response)
+      return response.data
     }
+
+    /*const updateCustomer = async (data) => {
+      const response = await apiUpdateCustomer({id:id, input:data})
+      return response.data
+    }*/
 
     const handleFormSubmit = async (values, setSubmitting) => {
         /*setSubmitting(true)
@@ -65,11 +93,14 @@ const CustomerEdit = () => {
     }
 
     useEffect(() => {
-        const path = location.pathname.substring(
+        const param = location.pathname.substring(
             location.pathname.lastIndexOf('/') + 1
         )
-        const rquestParam = { id: path }
-        fetchData(rquestParam)
+        //const rquestParam = { id: param }
+        //console.log('rquestParam...')
+        //console.log(rquestParam)
+        //fetchData(rquestParam)
+        fetchData(param)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location.pathname])
 

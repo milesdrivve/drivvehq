@@ -206,7 +206,6 @@ ProductForm.defaultProps = {
       first_name: '',
       last_name: '',
         /*id: '',
-        name: '',
         img: '',
         imgList: [],
         tags: [],

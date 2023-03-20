@@ -5,10 +5,9 @@ import { Field } from 'formik'
 
 const BasicInformationFields = (props) => {
     const { values, touched, errors } = props
-
     return (
         <AdaptableCard className="mb-4" divider isLastChild>
-            <h5>Contact Information</h5>
+            <h5>Contact Information</h5><span className="gap-4">{values.getCustomers.id}</span>
             <p>&nbsp;</p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="col-span-1">
@@ -19,10 +18,12 @@ const BasicInformationFields = (props) => {
                     >
                         <Field
                             type="text"
-                            autoComplete="off"
-                            name="first_name"
+                            name="FirstName"
+                            id="FirstName"
                             placeholder="First Name"
                             component={Input}
+                            disabled={false}
+                            value={values.getCustomers.first_name}
                         />
                     </FormItem>
                 </div>
@@ -34,14 +35,14 @@ const BasicInformationFields = (props) => {
                     >
                         <Field
                             type="text"
-                            autoComplete="off"
                             name="last_name"
                             placeholder="Last Name"
                             component={Input}
+                            value={values.getCustomers.last_name}
                         />
                     </FormItem>
                 </div>
-                {/*<div className="col-span-1">
+                <div className="col-span-1">
                     <FormItem
                         label="Email"
                         invalid={errors.email && touched.email}
@@ -49,8 +50,7 @@ const BasicInformationFields = (props) => {
                     >
                         <Field
                             type="text"
-                            autoComplete="off"
-                            name="Email Address"
+                            name="email"
                             placeholder="Email"
                             component={Input}
                         />
@@ -65,12 +65,13 @@ const BasicInformationFields = (props) => {
                         <Field
                             type="text"
                             autoComplete="off"
-                            name="Phone_Number"
+                            name="phone"
                             placeholder="Cell / Phone"
                             component={Input}
+                            value={values.getCustomers.phone}
                         />
                     </FormItem>
-    </div>*/}
+                </div>
             </div>
         </AdaptableCard>
     )

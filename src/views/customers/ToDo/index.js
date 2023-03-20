@@ -34,7 +34,7 @@ const ToDo = () => {
       const todos = todoData.data.listToDos.items
       setTodos(todos)
     } catch (err) {
-      console.log('error creating todo:', err)
+      console.log('error fetching todo:', err)
       openNotification("Error", err, "danger")
     }
   }

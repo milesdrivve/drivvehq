@@ -10,7 +10,7 @@ const StatusFields = (props) => {
     return (
       <AdaptableCard className="mb-4" divider isLastChild>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="col-span-1">
+            <div className="col-span-1"><span className="gap-4">{values.getCustomers.status}</span>
             <FormItem
                   label="Status"
                   invalid={errors.status && touched.status}
@@ -24,7 +24,7 @@ const StatusFields = (props) => {
                               options={statusList}
                               value={statusList.filter(
                                   (status) =>
-                                  status.label === values.Status
+                                  status.label === values.getCustomers.status
                               )}
                               onChange={(option) =>
                                   form.setFieldValue(

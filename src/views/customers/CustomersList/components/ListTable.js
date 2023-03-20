@@ -40,8 +40,7 @@ const OrderColumn = ({ row }) => {
     const navigate = useNavigate()
 
     const onView = useCallback(() => {
-        //navigate(`/app/sales/order-details/${row.id}`)
-        navigate(`/app/customers/customer-details?id=8`)
+        navigate(`/app/customers/customer-edit?id=8`)
     }, [navigate, row])
 
     return (
@@ -100,10 +99,17 @@ const ListTable = () => {
     const { pageIndex, pageSize, sort, query, total } = useSelector(
         (state) => state.customerList.data.tableData
     )
+
+    console.log('loading...')
     const loading = useSelector((state) => state.customerList.data.loading)
+    console.log(loading)
+
+    console.log('orderList...')
     const data = useSelector((state) => state.customerList.data.orderList)
+    console.log(data)
 
     const fetchData = useCallback(() => {
+        console.log('fetchData...')
         dispatch(getTableData({ pageIndex, pageSize, sort, query }))
     }, [dispatch, pageIndex, pageSize, sort, query])
 
@@ -126,7 +132,7 @@ const ListTable = () => {
             },
             {
               Header: 'Status',
-              accessor: 'Status',
+              accessor: 'status',
               sortable: false,
             },
             {
@@ -136,27 +142,32 @@ const ListTable = () => {
             },
             {
               Header: 'Full Name',
-              accessor: 'Full_Name',
+              accessor: 'first_name',
+              sortable: true,
+            },
+            {
+              Header: 'Last Name',
+              accessor: 'last_name',
               sortable: true,
             },
             {
               Header: 'Cell / Phone',
-              accessor: 'Phone_Number',
+              accessor: 'phone',
               sortable: false,
             },
             {
               Header: 'Email',
-              accessor: 'Email Address',
+              accessor: 'email',
               sortable: false,
             },
             {
               Header: 'Id / Passport',
-              accessor: 'ID Number',
+              accessor: 'id_number',
               sortable: false,
             },
             {
               Header: 'Drivers',
-              accessor: 'Drivers License Number',
+              accessor: 'drivers_licence',
               sortable: false,
             },
             {

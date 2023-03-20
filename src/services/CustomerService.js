@@ -35,6 +35,24 @@ export async function apiGetCustomerDetails(params) {
   })
 }*/
 
+export async function apiListCustomers() {
+  return await API.graphql(graphqlOperation(listCustomers))
+}
+
+export async function apiGetCustomer(id) {
+  return await API.graphql(graphqlOperation(
+    getCustomers,
+      {id: id}
+  ))
+
+  //return await API.graphql(graphqlOperation(getCustomers, {data}))
+}
+
 export async function apiCreateCustomer(data) {
   return await API.graphql(graphqlOperation(createCustomers, data))
 }
+
+export async function apiUpdateCustomer(data) {
+  return await API.graphql(graphqlOperation(updateCustomers, {data}))
+}
+
