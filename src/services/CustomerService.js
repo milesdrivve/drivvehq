@@ -35,8 +35,29 @@ export async function apiGetCustomerDetails(params) {
   })
 }*/
 
-export async function apiListCustomers() {
+/*export async function apiListCustomers() {
   return await API.graphql(graphqlOperation(listCustomers))
+}*/
+
+export async function apiListCustomers(data) {
+  let filter = {
+    or: [
+        {
+          first_name: { contains: data.query }
+        },
+        {
+          last_name: { contains: data.query }
+        },
+        {
+          email: { contains: data.query }
+        }
+      ]
+  };
+  return await API.graphql(
+      graphqlOperation(listCustomers, {
+        filter: filter
+      })
+  )
 }
 
 export async function apiGetCustomer(id) {

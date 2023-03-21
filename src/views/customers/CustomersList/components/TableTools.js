@@ -13,7 +13,10 @@ const TableTools = () => {
     const tableData = useSelector((state) => state.customerList.data.tableData)
 
     const handleInputChange = (val) => {
+        console.log('handleInputChange')
+        console.log(tableData)
         const newTableData = cloneDeep(tableData)
+        console.log(newTableData)
         newTableData.query = val
         newTableData.pageIndex = 1
         if (typeof val === 'string' && val.length > 1) {

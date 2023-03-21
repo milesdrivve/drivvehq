@@ -100,13 +100,8 @@ const ListTable = () => {
         (state) => state.customerList.data.tableData
     )
 
-    console.log('loading...')
     const loading = useSelector((state) => state.customerList.data.loading)
-    console.log(loading)
-
-    console.log('orderList...')
     const data = useSelector((state) => state.customerList.data.orderList)
-    console.log(data)
 
     const fetchData = useCallback(() => {
         console.log('fetchData...')

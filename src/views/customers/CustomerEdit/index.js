@@ -56,12 +56,12 @@ const CustomerEdit = () => {
     }*/
 
     const handleFormSubmit = async (values, setSubmitting) => {
-        /*setSubmitting(true)
+        setSubmitting(true)
         const success = await updateProduct(values)
         setSubmitting(false)
         if (success) {
             popNotification('updated')
-        }*/
+        }
     }
 
     const handleDiscard = () => {

@@ -6,7 +6,7 @@ export const getTableData = createAsyncThunk(
     async (data) => {
         //const response = await apiGetCustomerList(data)
         console.log('getTableData...')
-        const response = await apiListCustomers()
+        const response = await apiListCustomers(data)
         console.log('done getTableData...')
         console.log(response)
         return response
@@ -38,9 +38,12 @@ const dataSlice = createSlice({
         setTableData: (state, action) => {
           console.log('setTableData')
           console.log(action.payload)
-            state.tableData = action.payload
+          state.tableData = action.payload
         },
         setFilterData: (state, action) => {
+          console.log('setFilterData')
+          console.log(state)
+          console.log(action)
           state.filterData = action.payload
         },
     },
