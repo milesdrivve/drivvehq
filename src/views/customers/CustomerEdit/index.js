@@ -50,14 +50,15 @@ const CustomerEdit = () => {
       return response.data
     }
 
-    /*const updateCustomer = async (data) => {
-      const response = await apiUpdateCustomer({id:id, input:data})
-      return response.data
-    }*/
+    const updateCustomer = async (data) => {
+      console.log('updateCustomer to code')
+      //const response = await apiUpdateCustomer({id:id, input:data})
+      //return response.data
+    }
 
     const handleFormSubmit = async (values, setSubmitting) => {
         setSubmitting(true)
-        const success = await updateProduct(values)
+        const success = await updateCustomer(values)
         setSubmitting(false)
         if (success) {
             popNotification('updated')
