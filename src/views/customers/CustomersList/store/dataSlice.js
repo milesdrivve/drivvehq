@@ -9,7 +9,7 @@ export const getTableData = createAsyncThunk(
         const response = await apiListCustomers()
         console.log('done getTableData...')
         console.log(response)
-        return response.data
+        return response
     }
 )
 
@@ -46,11 +46,11 @@ const dataSlice = createSlice({
     },
     extraReducers: {
         [getTableData.fulfilled]: (state, action) => {
-            state.orderList = action.payload.data
-            state.tableData.total = action.payload.total
+            state.orderList = action.payload.data?.listCustomers?.items
+            state.tableData.total = action.payload.data?.listCustomers?.nextToken || 0
             state.loading = false
             console.log('1')
-            console.log(state)
+            console.log(state.orderList)
         },
         [getTableData.pending]: (state) => {
             state.loading = true
