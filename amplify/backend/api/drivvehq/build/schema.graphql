@@ -1,4 +1,24 @@
 
+enum ReservationsStatusEnum {
+  OPEN
+  ACTIVE
+  CLOSED
+}
+
+type Reservations @aws_api_key @aws_iam {
+  id: ID!
+  customersID: ID!
+  pickup_date: AWSDate
+  return_date: AWSDate
+  pickup_location: String
+  status: String
+  car: String
+  price: Float
+  deposit: Float
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
 type Candidate @aws_api_key @aws_iam {
   id: ID!
   name: String!
@@ -310,23 +330,32 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelCandidateConnection {
-  items: [Candidate]!
+type ModelReservationsConnection @aws_api_key @aws_iam {
+  items: [Reservations]!
   nextToken: String
 }
 
-input ModelCandidateFilterInput {
+input ModelReservationsFilterInput {
   id: ModelIDInput
-  name: ModelStringInput
-  email: ModelStringInput
-  and: [ModelCandidateFilterInput]
-  or: [ModelCandidateFilterInput]
-  not: ModelCandidateFilterInput
+  customersID: ModelIDInput
+  pickup_date: ModelStringInput
+  return_date: ModelStringInput
+  pickup_location: ModelStringInput
+  status: ModelStringInput
+  car: ModelStringInput
+  price: ModelFloatInput
+  deposit: ModelFloatInput
+  and: [ModelReservationsFilterInput]
+  or: [ModelReservationsFilterInput]
+  not: ModelReservationsFilterInput
 }
 
 type Query {
   getCandidate(id: ID!): Candidate
   listCandidates(filter: ModelCandidateFilterInput, limit: Int, nextToken: String): ModelCandidateConnection
+  getReservations(id: ID!): Reservations @aws_api_key @aws_iam
+  listReservations(filter: ModelReservationsFilterInput, limit: Int, nextToken: String): ModelReservationsConnection @aws_api_key @aws_iam
+  reservationsByCustomersID(customersID: ID!, sortDirection: ModelSortDirection, filter: ModelReservationsFilterInput, limit: Int, nextToken: String): ModelReservationsConnection @aws_api_key @aws_iam
   getToDo(id: ID!): ToDo @aws_api_key @aws_iam
   listToDos(filter: ModelToDoFilterInput, limit: Int, nextToken: String): ModelToDoConnection @aws_api_key @aws_iam
   getFees(id: ID!): Fees @aws_api_key @aws_iam
@@ -357,32 +386,53 @@ type Query {
   listCustomers(filter: ModelCustomersFilterInput, limit: Int, nextToken: String): ModelCustomersConnection @aws_api_key @aws_iam
 }
 
-input ModelCandidateConditionInput {
-  name: ModelStringInput
-  email: ModelStringInput
-  and: [ModelCandidateConditionInput]
-  or: [ModelCandidateConditionInput]
-  not: ModelCandidateConditionInput
+input ModelReservationsConditionInput {
+  customersID: ModelIDInput
+  pickup_date: ModelStringInput
+  return_date: ModelStringInput
+  pickup_location: ModelStringInput
+  status: ModelStringInput
+  car: ModelStringInput
+  price: ModelFloatInput
+  deposit: ModelFloatInput
+  and: [ModelReservationsConditionInput]
+  or: [ModelReservationsConditionInput]
+  not: ModelReservationsConditionInput
 }
 
-input CreateCandidateInput {
+input CreateReservationsInput {
   id: ID
-  name: String!
-  email: AWSEmail!
+  customersID: ID!
+  pickup_date: AWSDate
+  return_date: AWSDate
+  pickup_location: String
+  status: String
+  car: String
+  price: Float
+  deposit: Float
 }
 
-input UpdateCandidateInput {
+input UpdateReservationsInput {
   id: ID!
-  name: String
-  email: AWSEmail
+  customersID: ID
+  pickup_date: AWSDate
+  return_date: AWSDate
+  pickup_location: String
+  status: String
+  car: String
+  price: Float
+  deposit: Float
 }
 
-input DeleteCandidateInput {
+input DeleteReservationsInput {
   id: ID!
 }
 
 type Mutation {
   deleteCandidate(input: DeleteCandidateInput!, condition: ModelCandidateConditionInput): Candidate
+  createReservations(input: CreateReservationsInput!, condition: ModelReservationsConditionInput): Reservations @aws_api_key @aws_iam
+  updateReservations(input: UpdateReservationsInput!, condition: ModelReservationsConditionInput): Reservations @aws_api_key @aws_iam
+  deleteReservations(input: DeleteReservationsInput!, condition: ModelReservationsConditionInput): Reservations @aws_api_key @aws_iam
   createCandidate(input: CreateCandidateInput!, condition: ModelCandidateConditionInput): Candidate @aws_api_key @aws_iam
   updateCandidate(input: UpdateCandidateInput!, condition: ModelCandidateConditionInput): Candidate @aws_api_key @aws_iam
   createToDo(input: CreateToDoInput!, condition: ModelToDoConditionInput): ToDo @aws_api_key @aws_iam
@@ -420,18 +470,27 @@ type Mutation {
   deleteCustomers(input: DeleteCustomersInput!, condition: ModelCustomersConditionInput): Customers @aws_api_key @aws_iam
 }
 
-input ModelSubscriptionCandidateFilterInput {
+input ModelSubscriptionReservationsFilterInput {
   id: ModelSubscriptionIDInput
-  name: ModelSubscriptionStringInput
-  email: ModelSubscriptionStringInput
-  and: [ModelSubscriptionCandidateFilterInput]
-  or: [ModelSubscriptionCandidateFilterInput]
+  customersID: ModelSubscriptionIDInput
+  pickup_date: ModelSubscriptionStringInput
+  return_date: ModelSubscriptionStringInput
+  pickup_location: ModelSubscriptionStringInput
+  status: ModelSubscriptionStringInput
+  car: ModelSubscriptionStringInput
+  price: ModelSubscriptionFloatInput
+  deposit: ModelSubscriptionFloatInput
+  and: [ModelSubscriptionReservationsFilterInput]
+  or: [ModelSubscriptionReservationsFilterInput]
 }
 
 type Subscription {
   onCreateCandidate(filter: ModelSubscriptionCandidateFilterInput): Candidate @aws_subscribe(mutations: ["createCandidate"])
   onUpdateCandidate(filter: ModelSubscriptionCandidateFilterInput): Candidate @aws_subscribe(mutations: ["updateCandidate"])
   onDeleteCandidate(filter: ModelSubscriptionCandidateFilterInput): Candidate @aws_subscribe(mutations: ["deleteCandidate"])
+  onCreateReservations(filter: ModelSubscriptionReservationsFilterInput): Reservations @aws_subscribe(mutations: ["createReservations"]) @aws_api_key @aws_iam
+  onUpdateReservations(filter: ModelSubscriptionReservationsFilterInput): Reservations @aws_subscribe(mutations: ["updateReservations"]) @aws_api_key @aws_iam
+  onDeleteReservations(filter: ModelSubscriptionReservationsFilterInput): Reservations @aws_subscribe(mutations: ["deleteReservations"]) @aws_api_key @aws_iam
   onCreateToDo(filter: ModelSubscriptionToDoFilterInput): ToDo @aws_subscribe(mutations: ["createToDo"]) @aws_api_key @aws_iam
   onUpdateToDo(filter: ModelSubscriptionToDoFilterInput): ToDo @aws_subscribe(mutations: ["updateToDo"]) @aws_api_key @aws_iam
   onDeleteToDo(filter: ModelSubscriptionToDoFilterInput): ToDo @aws_subscribe(mutations: ["deleteToDo"]) @aws_api_key @aws_iam
@@ -465,6 +524,52 @@ type Subscription {
   onCreateCustomers(filter: ModelSubscriptionCustomersFilterInput): Customers @aws_subscribe(mutations: ["createCustomers"]) @aws_api_key @aws_iam
   onUpdateCustomers(filter: ModelSubscriptionCustomersFilterInput): Customers @aws_subscribe(mutations: ["updateCustomers"]) @aws_api_key @aws_iam
   onDeleteCustomers(filter: ModelSubscriptionCustomersFilterInput): Customers @aws_subscribe(mutations: ["deleteCustomers"]) @aws_api_key @aws_iam
+}
+
+type ModelCandidateConnection {
+  items: [Candidate]!
+  nextToken: String
+}
+
+input ModelCandidateFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  email: ModelStringInput
+  and: [ModelCandidateFilterInput]
+  or: [ModelCandidateFilterInput]
+  not: ModelCandidateFilterInput
+}
+
+input ModelCandidateConditionInput {
+  name: ModelStringInput
+  email: ModelStringInput
+  and: [ModelCandidateConditionInput]
+  or: [ModelCandidateConditionInput]
+  not: ModelCandidateConditionInput
+}
+
+input CreateCandidateInput {
+  id: ID
+  name: String!
+  email: AWSEmail!
+}
+
+input UpdateCandidateInput {
+  id: ID!
+  name: String
+  email: AWSEmail
+}
+
+input DeleteCandidateInput {
+  id: ID!
+}
+
+input ModelSubscriptionCandidateFilterInput {
+  id: ModelSubscriptionIDInput
+  name: ModelSubscriptionStringInput
+  email: ModelSubscriptionStringInput
+  and: [ModelSubscriptionCandidateFilterInput]
+  or: [ModelSubscriptionCandidateFilterInput]
 }
 
 type ModelToDoConnection @aws_api_key @aws_iam {

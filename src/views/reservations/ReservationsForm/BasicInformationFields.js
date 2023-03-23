@@ -17,11 +17,11 @@ const BasicInformationFields = (props) => {
               <div className="col-span-1">
                   <FormItem
                       label="Pickup Date & Time"
-                      invalid={errors.pickupDate && touched.pickupDate}
-                      errorMessage={errors.pickupDate}
+                      invalid={errors.pickup_date && touched.pickup_date}
+                      errorMessage={errors.pickup_date}
                   >
                     <DateTimepicker
-                        name="pickupDate"
+                        name="pickup_date"
                         component={Input}
                         placeholder="Pickup date & time"
                         />
@@ -30,18 +30,18 @@ const BasicInformationFields = (props) => {
               <div className="col-span-1">
               <FormItem
                       label="Return Date & Time"
-                      invalid={errors.returnDate && touched.returnDate}
-                      errorMessage={errors.returnDate}
+                      invalid={errors.return_date && touched.return_date}
+                      errorMessage={errors.return_date}
                   >
                       <DateTimepicker
-                        name="returnDate"
+                        name="return_date"
                         component={Input}
                         placeholder="Return date & time"
                         />
                   </FormItem>
               </div>
           </div>
-          <h5 className="mt-5">Pickup Information</h5>
+          {/*<h5 className="mt-5">Pickup Information</h5>
           <p>&nbsp;</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="col-span-1">
@@ -90,7 +90,7 @@ const BasicInformationFields = (props) => {
                     component={Input}
                 />
             </FormItem>
-          </div>
+                                  </div>*/}
       </AdaptableCard>
     )
 }

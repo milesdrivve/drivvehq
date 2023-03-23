@@ -30,6 +30,79 @@ export const listCandidates = /* GraphQL */ `
     }
   }
 `;
+export const getReservations = /* GraphQL */ `
+  query GetReservations($id: ID!) {
+    getReservations(id: $id) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listReservations = /* GraphQL */ `
+  query ListReservations(
+    $filter: ModelReservationsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listReservations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        customersID
+        pickup_date
+        return_date
+        pickup_location
+        status
+        car
+        price
+        deposit
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const reservationsByCustomersID = /* GraphQL */ `
+  query ReservationsByCustomersID(
+    $customersID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelReservationsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    reservationsByCustomersID(
+      customersID: $customersID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        customersID
+        pickup_date
+        return_date
+        pickup_location
+        status
+        car
+        price
+        deposit
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getToDo = /* GraphQL */ `
   query GetToDo($id: ID!) {
     getToDo(id: $id) {

@@ -660,6 +660,111 @@
         "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
       }
     },
+    "CustomersCustomerReservationsDataResolverFnCustomersCustomerReservationsDataResolverFnAppSyncFunction2D418352": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsReservationsDataSource1582BCC9Name"
+        },
+        "FunctionVersion": "2018-05-29",
+        "Name": "CustomersCustomerReservationsDataResolverFn",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Customers.CustomerReservations.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Customers.CustomerReservations.res.vtl"
+            ]
+          ]
+        }
+      }
+    },
+    "CustomersCustomerReservationsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "FieldName": "CustomerReservations",
+        "TypeName": "Customers",
+        "Kind": "PIPELINE",
+        "PipelineConfig": {
+          "Functions": [
+            {
+              "Fn::GetAtt": [
+                "SuppliersSuppliersClassesauth0FunctionSuppliersSuppliersClassesauth0FunctionAppSyncFunction8C47E8A4",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
+                "CustomersCustomerReservationsDataResolverFnCustomersCustomerReservationsDataResolverFnAppSyncFunction2D418352",
+                "FunctionId"
+              ]
+            }
+          ]
+        },
+        "RequestMappingTemplate": {
+          "Fn::Join": [
+            "",
+            [
+              "$util.qr($ctx.stash.put(\"typeName\", \"Customers\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"CustomerReservations\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+              {
+                "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+              },
+              "\"))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+              {
+                "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsReservationsTable10DEEDC6Ref"
+              },
+              "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackauthRoleNameFB872D50Ref"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackunauthRoleName49F3C1FERef"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.toJson({})"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+      }
+    },
     "CarsCarsClassesDataResolverFnCarsCarsClassesDataResolverFnAppSyncFunction86AA4BDC": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -924,6 +1029,12 @@
       "Type": "String"
     },
     "referencetotransformerrootstackDocumentsNestedStackDocumentsNestedStackResourceF7BE6F42OutputstransformerrootstackDocumentsDocumentsTable1CC956EBRef": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsReservationsDataSource1582BCC9Name": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsReservationsTable10DEEDC6Ref": {
       "Type": "String"
     },
     "referencetotransformerrootstackAddressesNestedStackAddressesNestedStackResourceE5BD37CAOutputstransformerrootstackAddressesAddressesDataSourceF5F82507Name": {

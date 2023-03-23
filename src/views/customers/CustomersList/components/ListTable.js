@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom'
 import cloneDeep from 'lodash/cloneDeep'
 import dayjs from 'dayjs'
 
-const orderStatusColor = {
+/*const orderStatusColor = {
     0: {
         label: 'New',
         dotClass: 'bg-emerald-500',
@@ -33,9 +33,9 @@ const orderStatusColor = {
         dotClass: 'bg-red-500',
         textClass: 'text-red-500'
     },
-}
+}*/
 
-const OrderColumn = ({ row }) => {
+/*const OrderColumn = ({ row }) => {
     const { textTheme } = useThemeClass()
     const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ const OrderColumn = ({ row }) => {
             #{row.id}
         </span>
     )
-}
+}*/
 
 const ActionColumn = ({ row }) => {
     const dispatch = useDispatch()
@@ -104,7 +104,6 @@ const ListTable = () => {
     const data = useSelector((state) => state.customerList.data.orderList)
 
     const fetchData = useCallback(() => {
-        console.log('fetchData...')
         dispatch(getTableData({ pageIndex, pageSize, sort, query }))
     }, [dispatch, pageIndex, pageSize, sort, query])
 

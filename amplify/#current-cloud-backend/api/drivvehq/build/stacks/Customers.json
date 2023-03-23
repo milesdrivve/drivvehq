@@ -49,10 +49,10 @@
     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
       "Type": "String"
     },
-    "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoQuerygetToDoauth0FunctionQuerygetToDoauth0FunctionAppSyncFunction9FF298F7FunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationsauth0FunctionQuerygetReservationsauth0FunctionAppSyncFunctionBF87C8D4FunctionId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId": {
       "Type": "String"
     },
     "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
@@ -61,19 +61,19 @@
     "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
       "Type": "String"
     },
-    "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateMutationcreateCandidateinit0FunctionMutationcreateCandidateinit0FunctionAppSyncFunction6660E0DCFunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsMutationcreateReservationsinit0FunctionMutationcreateReservationsinit0FunctionAppSyncFunctionAF4DD662FunctionId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateMutationcreateCandidateauth0FunctionMutationcreateCandidateauth0FunctionAppSyncFunction61B46B68FunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsMutationcreateReservationsauth0FunctionMutationcreateReservationsauth0FunctionAppSyncFunctionC38D33A8FunctionId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateMutationupdateCandidateinit0FunctionMutationupdateCandidateinit0FunctionAppSyncFunction7B905AC0FunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsMutationupdateReservationsinit0FunctionMutationupdateReservationsinit0FunctionAppSyncFunction17C1A562FunctionId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoSubscriptiononCreateToDoauth0FunctionSubscriptiononCreateToDoauth0FunctionAppSyncFunction5625E934FunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptiononCreateReservationsauth0FunctionSubscriptiononCreateReservationsauth0FunctionAppSyncFunctionBC1EF5EFFunctionId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateSubscriptionOnCreateCandidateDataResolverFnSubscriptionOnCreateCandidateDataResolverFnAppSyncFunctionA75FE33DFunctionId": {
+    "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptionOnCreateReservationsDataResolverFnSubscriptionOnCreateReservationsDataResolverFnAppSyncFunction09A3E63C4": {
       "Type": "String"
     }
   },
@@ -439,10 +439,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoQuerygetToDoauth0FunctionQuerygetToDoauth0FunctionAppSyncFunction9FF298F7FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationsauth0FunctionQuerygetReservationsauth0FunctionAppSyncFunctionBF87C8D4FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -550,10 +550,10 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoQuerygetToDoauth0FunctionQuerygetToDoauth0FunctionAppSyncFunction9FF298F7FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationsauth0FunctionQuerygetReservationsauth0FunctionAppSyncFunctionBF87C8D4FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -661,13 +661,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateMutationcreateCandidateinit0FunctionMutationcreateCandidateinit0FunctionAppSyncFunction6660E0DCFunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsMutationcreateReservationsinit0FunctionMutationcreateReservationsinit0FunctionAppSyncFunctionAF4DD662FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateMutationcreateCandidateauth0FunctionMutationcreateCandidateauth0FunctionAppSyncFunction61B46B68FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsMutationcreateReservationsauth0FunctionMutationcreateReservationsauth0FunctionAppSyncFunctionC38D33A8FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -826,7 +826,7 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateMutationupdateCandidateinit0FunctionMutationupdateCandidateinit0FunctionAppSyncFunction7B905AC0FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsMutationupdateReservationsinit0FunctionMutationupdateReservationsinit0FunctionAppSyncFunction17C1A562FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -835,7 +835,7 @@
               ]
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1000,7 +1000,7 @@
               ]
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
               "Fn::GetAtt": [
@@ -1057,13 +1057,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoSubscriptiononCreateToDoauth0FunctionSubscriptiononCreateToDoauth0FunctionAppSyncFunction5625E934FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptiononCreateReservationsauth0FunctionSubscriptiononCreateReservationsauth0FunctionAppSyncFunctionBC1EF5EFFunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateSubscriptionOnCreateCandidateDataResolverFnSubscriptionOnCreateCandidateDataResolverFnAppSyncFunctionA75FE33DFunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptionOnCreateReservationsDataResolverFnSubscriptionOnCreateReservationsDataResolverFnAppSyncFunction09A3E63C4"
             }
           ]
         },
@@ -1110,13 +1110,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoSubscriptiononCreateToDoauth0FunctionSubscriptiononCreateToDoauth0FunctionAppSyncFunction5625E934FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptiononCreateReservationsauth0FunctionSubscriptiononCreateReservationsauth0FunctionAppSyncFunctionBC1EF5EFFunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateSubscriptionOnCreateCandidateDataResolverFnSubscriptionOnCreateCandidateDataResolverFnAppSyncFunctionA75FE33DFunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptionOnCreateReservationsDataResolverFnSubscriptionOnCreateReservationsDataResolverFnAppSyncFunction09A3E63C4"
             }
           ]
         },
@@ -1163,13 +1163,13 @@
         "PipelineConfig": {
           "Functions": [
             {
-              "Ref": "referencetotransformerrootstackToDoNestedStackToDoNestedStackResource89BC3F39OutputstransformerrootstackToDoSubscriptiononCreateToDoauth0FunctionSubscriptiononCreateToDoauth0FunctionAppSyncFunction5625E934FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptiononCreateReservationsauth0FunctionSubscriptiononCreateReservationsauth0FunctionAppSyncFunctionBC1EF5EFFunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateQuerygetCandidatepostAuth0FunctionQuerygetCandidatepostAuth0FunctionAppSyncFunctionFF3D6CA8FunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsQuerygetReservationspostAuth0FunctionQuerygetReservationspostAuth0FunctionAppSyncFunctionCF5CD291FunctionId"
             },
             {
-              "Ref": "referencetotransformerrootstackCandidateNestedStackCandidateNestedStackResourceC6ABF27DOutputstransformerrootstackCandidateSubscriptionOnCreateCandidateDataResolverFnSubscriptionOnCreateCandidateDataResolverFnAppSyncFunctionA75FE33DFunctionId"
+              "Ref": "referencetotransformerrootstackReservationsNestedStackReservationsNestedStackResource35EE4599OutputstransformerrootstackReservationsSubscriptionOnCreateReservationsDataResolverFnSubscriptionOnCreateReservationsDataResolverFnAppSyncFunction09A3E63C4"
             }
           ]
         },

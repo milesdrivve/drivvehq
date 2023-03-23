@@ -88,7 +88,7 @@ const ProductForm = forwardRef((props, ref) => {
                           }))
                         : [],*/
                 }}
-                //validationSchema={validationSchema}
+                validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
                     console.log('here 1')
                     const formData = cloneDeep(values)

@@ -14,26 +14,6 @@
     "categories": {
       "api": {
         "drivvehq": {}
-      },
-      "function": {
-        "drivvehq02b93c2f": {
-          "deploymentBucketName": "amplify-drivvehq-dev-120654-deployment",
-          "s3Key": "amplify-builds/drivvehq02b93c2f-616b6b7a6c732b6b5253-build.zip",
-          "sesEmail": "bookings@drivve.co.za"
-        },
-        "drivvehqupdatecandidates": {
-          "sesEmail": "bookings@drivve.co.za",
-          "deploymentBucketName": "amplify-drivvehq-dev-120654-deployment",
-          "s3Key": "amplify-builds/drivvehqupdatecandidates-736d7442554b61466848-build.zip"
-        },
-        "createToDo": {
-          "deploymentBucketName": "amplify-drivvehq-dev-120654-deployment",
-          "s3Key": "amplify-builds/createToDo-45492b356f4132376262-build.zip"
-        },
-        "drivvehqhelloworld": {
-          "deploymentBucketName": "amplify-drivvehq-dev-120654-deployment",
-          "s3Key": "amplify-builds/drivvehqhelloworld-54357a6974442f426d6e-build.zip"
-        }
       }
     }
   }

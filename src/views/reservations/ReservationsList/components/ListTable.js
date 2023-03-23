@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom'
 import cloneDeep from 'lodash/cloneDeep'
 import dayjs from 'dayjs'
 
-const orderStatusColor = {
+/*const orderStatusColor = {
     0: {
         label: 'New',
         dotClass: 'bg-emerald-500',
@@ -33,7 +33,7 @@ const orderStatusColor = {
         dotClass: 'bg-red-500',
         textClass: 'text-red-500'
     },
-}
+}*/
 
 /*const OrderColumn = ({ row }) => {
     const { textTheme } = useThemeClass()
@@ -58,13 +58,13 @@ const ActionColumn = ({ row }) => {
     const { textTheme } = useThemeClass()
     const navigate = useNavigate()
 
+    const onEdit = () => {
+      navigate(`/app/reservations/reservations-edit/${row.id}`)
+    }
+
     const onDelete = () => {
         dispatch(setDeleteMode('single'))
         dispatch(setSelectedRow([row.id]))
-    }
-
-    const onEdit = () => {
-      navigate(`/app/reservations/reservations-edit/${row.id}`)
     }
 
     /*const onView = useCallback(() => {
@@ -98,6 +98,7 @@ const ListTable = () => {
     const { pageIndex, pageSize, sort, query, total } = useSelector(
         (state) => state.reservationList.data.tableData
     )
+
     const loading = useSelector((state) => state.reservationList.data.loading)
     const data = useSelector((state) => state.reservationList.data.orderList)
 
@@ -118,8 +119,8 @@ const ListTable = () => {
     const columns = React.useMemo(
         () => [
             {
-              Header: 'Reservation Number',
-              accessor: '#',
+              Header: 'Id',
+              accessor: 'id',
               sortable: false,
             },
             {
@@ -129,62 +130,27 @@ const ListTable = () => {
             },
             {
               Header: 'Customer',
-              accessor: 'Customer',
+              accessor: 'customersID',
               sortable: false,
             },
             {
               Header: 'Pickup Date',
-              accessor: 'Pickup Date',
+              accessor: 'pickup_date',
               sortable: false,
             },
             {
               Header: 'Return Date',
-              accessor: 'Return Date',
+              accessor: 'return_date',
               sortable: false,
             },
             {
-              Header: 'Rental Days',
-              accessor: 'Total Days',
-              sortable: false,
-            },
-            {
-              Header: 'Location',
-              accessor: 'Pickup Location',
-              sortable: false,
-            },
-            {
-              Header: 'Vehicle Class',
-              accessor: 'Vehicle Class',
+              Header: 'Car',
+              accessor: 'ReservationCars',
               sortable: false,
             },
             {
               Header: 'Price',
-              accessor: 'Monthly Rate',
-              sortable: false,
-            },
-            {
-              Header: 'Total Price',
-              accessor: 'Total Price',
-              sortable: false,
-            },
-            {
-              Header: 'Additional Drivers',
-              accessor: 'Additional Drivers',
-              sortable: false,
-            },
-            {
-              Header: 'Signed At',
-              accessor: 'Signed At',
-              sortable: false,
-            },
-            {
-              Header: 'Signed By',
-              accessor: 'Signed By',
-              sortable: false,
-            },
-            {
-              Header: 'Created',
-              accessor: 'Created at',
+              accessor: 'ReservationPrices',
               sortable: false,
             },
             {

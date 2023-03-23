@@ -15,6 +15,66 @@ export const deleteCandidate = /* GraphQL */ `
     }
   }
 `;
+export const createReservations = /* GraphQL */ `
+  mutation CreateReservations(
+    $input: CreateReservationsInput!
+    $condition: ModelReservationsConditionInput
+  ) {
+    createReservations(input: $input, condition: $condition) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateReservations = /* GraphQL */ `
+  mutation UpdateReservations(
+    $input: UpdateReservationsInput!
+    $condition: ModelReservationsConditionInput
+  ) {
+    updateReservations(input: $input, condition: $condition) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteReservations = /* GraphQL */ `
+  mutation DeleteReservations(
+    $input: DeleteReservationsInput!
+    $condition: ModelReservationsConditionInput
+  ) {
+    deleteReservations(input: $input, condition: $condition) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createCandidate = /* GraphQL */ `
   mutation CreateCandidate(
     $input: CreateCandidateInput!

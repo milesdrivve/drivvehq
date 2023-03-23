@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiGetReservationList } from 'services/ReservationService';
+import { apiListReservations } from 'services/ReservationService';
 
 export const getTableData = createAsyncThunk(
     'reservationList/data/getTableData',
     async (data) => {
-        const response = await apiGetReservationList(data)
+        //const response = await apiGetReservationList(data)
+        const response = await apiListReservations(data)
+        console.log(response)
         return response.data
     }
 )
@@ -21,7 +23,7 @@ export const initialTableData = {
 }
 
 export const initialFilterData = {
-  status: '',
+  pickup_location: ''
 }
 
 const dataSlice = createSlice({
@@ -45,8 +47,8 @@ const dataSlice = createSlice({
     },
     extraReducers: {
         [getTableData.fulfilled]: (state, action) => {
-            state.orderList = action.payload.data
-            state.tableData.total = action.payload.total
+            state.orderList = action.payload.data?.listReservations?.items
+            state.tableData.total = action.payload.total?.listReservations?.nextToken || 0
             state.loading = false
         },
         [getTableData.pending]: (state) => {

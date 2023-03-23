@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AdaptableCard } from 'components/shared'
 import { Input, FormItem } from 'components/ui'
 import { Field } from 'formik'
 
 const BasicInformationFields = (props) => {
     const { values, touched, errors } = props
+    const [ val, setMyVal ] = useState(values.getCustomers);
     return (
         <AdaptableCard className="mb-4" divider isLastChild>
-            <h5>Contact Information</h5><span className="gap-4">{values.getCustomers.id}</span>
+            <h5>Contact Information</h5><span className="gap-4">{/*{values.getCustomers.id}*/}</span>
             <p>&nbsp;</p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="col-span-1">
@@ -23,7 +24,7 @@ const BasicInformationFields = (props) => {
                             placeholder="First Name"
                             component={Input}
                             disabled={false}
-                            value={values.getCustomers.first_name}
+                            /*value={val.first_name}*/
                         />
                     </FormItem>
                 </div>
@@ -38,7 +39,11 @@ const BasicInformationFields = (props) => {
                             name="last_name"
                             placeholder="Last Name"
                             component={Input}
-                            value={values.getCustomers.last_name}
+                            /*value={val.last_name}
+                            onChange={e => {
+                              console.log(e.target.value);
+                              setMyVal(e.target.value);
+                            }}*/
                         />
                     </FormItem>
                 </div>
@@ -68,7 +73,7 @@ const BasicInformationFields = (props) => {
                             name="phone"
                             placeholder="Cell / Phone"
                             component={Input}
-                            value={values.getCustomers.phone}
+                            /*value={val.phone}*/
                         />
                     </FormItem>
                 </div>

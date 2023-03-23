@@ -40,6 +40,63 @@ export const onDeleteCandidate = /* GraphQL */ `
     }
   }
 `;
+export const onCreateReservations = /* GraphQL */ `
+  subscription OnCreateReservations(
+    $filter: ModelSubscriptionReservationsFilterInput
+  ) {
+    onCreateReservations(filter: $filter) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateReservations = /* GraphQL */ `
+  subscription OnUpdateReservations(
+    $filter: ModelSubscriptionReservationsFilterInput
+  ) {
+    onUpdateReservations(filter: $filter) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteReservations = /* GraphQL */ `
+  subscription OnDeleteReservations(
+    $filter: ModelSubscriptionReservationsFilterInput
+  ) {
+    onDeleteReservations(filter: $filter) {
+      id
+      customersID
+      pickup_date
+      return_date
+      pickup_location
+      status
+      car
+      price
+      deposit
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateToDo = /* GraphQL */ `
   subscription OnCreateToDo($filter: ModelSubscriptionToDoFilterInput) {
     onCreateToDo(filter: $filter) {
@@ -664,6 +721,22 @@ export const onCreateCustomers = /* GraphQL */ `
       salary
       status
       comments
+      CustomerReservations {
+        items {
+          id
+          customersID
+          pickup_date
+          return_date
+          pickup_location
+          status
+          car
+          price
+          deposit
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       customersCustomersAddressesId
@@ -706,6 +779,22 @@ export const onUpdateCustomers = /* GraphQL */ `
       salary
       status
       comments
+      CustomerReservations {
+        items {
+          id
+          customersID
+          pickup_date
+          return_date
+          pickup_location
+          status
+          car
+          price
+          deposit
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       customersCustomersAddressesId
@@ -748,6 +837,22 @@ export const onDeleteCustomers = /* GraphQL */ `
       salary
       status
       comments
+      CustomerReservations {
+        items {
+          id
+          customersID
+          pickup_date
+          return_date
+          pickup_location
+          status
+          car
+          price
+          deposit
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       customersCustomersAddressesId
