@@ -3,6 +3,7 @@
   "version": "1.2.1",
   "private": true,
   "dependencies": {
+    "@aws-amplify/ui-react": "^4.4.1",
     "@fullcalendar/daygrid": "^5.10.1",
     "@fullcalendar/interaction": "^5.10.1",
     "@fullcalendar/react": "^5.10.1",
@@ -17,7 +18,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@visx/pattern": "2.10.0",
     "apexcharts": "^3.35.2",
-    "aws-amplify": "^5.0.18",
+    "aws-amplify": "^5.0.21",
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
     "classnames": "^2.2.6",

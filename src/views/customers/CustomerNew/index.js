@@ -1,10 +1,16 @@
-import React from 'react'
-import ProductForm from 'views/customers/ProductForm'
-//import ToDo from 'views/customers/ToDo'
-//import ContactForm from 'views/customers/ContactForm'
+import React, { useEffect, useState } from 'react'
+import { Form, Formik, Field } from 'formik'
+import { FormContainer, Button, hooks, Tabs, Input, FormItem } from 'components/ui'
+import { AdaptableCard } from 'components/shared'
+import CustomersCreateForm from 'ui-components/CustomersCreateForm'
 import { toast, Notification } from 'components/ui'
 import { useNavigate } from 'react-router-dom'
-import { apiCreateCustomer } from 'services/CustomerService'
+//import { apiCreateCustomer } from 'services/CustomerService'
+
+import { ThemeProvider, createTheme } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
+import { studioTheme } from 'ui-components'
+import Theme from 'components/template/Theme'
 
 const openNotification = (title, message, type) => {
   toast.push(
@@ -18,42 +24,42 @@ const openNotification = (title, message, type) => {
   )
 }
 
+//const theme = createTheme(Theme)
+const updatedTheme = createTheme({
+  // Extend the theme to update the button color
+  name: "my-theme",
+  tokens: {
+      components: {
+          button: {
+              primary: {
+                  backgroundColor: {
+                      value: "#000"
+                  },
+              },
+          },
+      },
+  },
+}, studioTheme)
+
 const CustomerNew = () => {
-    const navigate = useNavigate()
-
-    const addCustomer = async (data) => {
-        const response = await apiCreateCustomer({input:data})
-        return response.data
-    }
-
-    const handleFormSubmit = async (values, setSubmitting) => {
-        console.log('submitting...')
-        console.log(values)
-        setSubmitting(true)
-        const response = await addCustomer(values)
-        console.log(response)
-        setSubmitting(false)
-        if (response) {
-          openNotification("Success", "Customer added", "success")
-            //navigate('/app/customers/customer-list')
-        } else {
-          openNotification("Error", response, "danger")
-        }
-    }
-
-    const handleDiscard = () => {
-        //navigate('/app/customers/customer-list')
-    }
+    useEffect(() => {
+      openNotification("Success", "hello there !", "success")
+    })
 
     return (
         <>
-            {/*<ContactForm />
-            <ToDo />*/}
-            <ProductForm
-                type="new"
-                onFormSubmit={handleFormSubmit}
-                onDiscard={handleDiscard}
-            />
+          <AdaptableCard className="mb-4" divider isLastChild>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="col-span-1">
+                <ThemeProvider theme={updatedTheme}>
+                <CustomersCreateForm onSuccess={(fields) => {
+                  console.log('success')
+                  openNotification("Success", "Customer added", "success")
+                }} />
+                </ThemeProvider>
+                </div>
+              </div>
+          </AdaptableCard>
         </>
     )
 }

@@ -152,12 +152,12 @@
         }
       }
     },
-    "apidrivvehq": {
+    "apidrivveadmin": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-drivvehq-dev-120654-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-drivveadmin-dev-81044-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "Parameters": {
-          "AppSyncApiName": "drivvehq",
+          "AppSyncApiName": "drivveadmin",
           "DynamoDBBillingMode": "PAY_PER_REQUEST",
           "DynamoDBEnableServerSideEncryption": false,
           "authRoleName": {
@@ -166,8 +166,8 @@
           "unauthRoleName": {
             "Ref": "UnauthRoleName"
           },
-          "S3DeploymentBucket": "amplify-drivvehq-dev-120654-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/5c1b16ac832c03787ab53810a9dadbd61be8f756",
+          "S3DeploymentBucket": "amplify-drivveadmin-dev-81044-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/847263a902395557c5bdc1f072c710917bfcede1",
           "env": "dev"
         }
       }

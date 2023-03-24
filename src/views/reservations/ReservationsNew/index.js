@@ -1,49 +1,70 @@
-import React from 'react'
-import ReservationsForm from 'views/reservations/ReservationsForm'
+import React, { useEffect, useState } from 'react'
+import { Form, Formik, Field } from 'formik'
+import { FormContainer, Button, hooks, Tabs, Input, FormItem } from 'components/ui'
+import { AdaptableCard } from 'components/shared'
+import ReservationsCreateForm from 'ui-components/ReservationsCreateForm'
 import { toast, Notification } from 'components/ui'
 import { useNavigate } from 'react-router-dom'
-import { apiCreateSalesProduct } from 'services/SalesService'
+//import { apiCreateCustomer } from 'services/CustomerService'
+
+import { ThemeProvider, createTheme } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
+import { studioTheme } from 'ui-components'
+import Theme from 'components/template/Theme'
+
+const openNotification = (title, message, type) => {
+  toast.push(
+      <Notification
+          title={title}
+          type={type}
+          duration={2500}
+      >
+          {message}
+      </Notification>
+  )
+}
+
+//const theme = createTheme(Theme)
+const updatedTheme = createTheme({
+  // Extend the theme to update the button color
+  name: "my-theme",
+  tokens: {
+      components: {
+          button: {
+              primary: {
+                  backgroundColor: {
+                      value: "#000"
+                  },
+              },
+          },
+      },
+  },
+}, studioTheme)
 
 const ReservationsNew = () => {
-    const navigate = useNavigate()
-
-    const addProduct = async (data) => {
-        const response = await apiCreateSalesProduct(data)
-        return response.data
-    }
-
-    const handleFormSubmit = async (values, setSubmitting) => {
-        setSubmitting(true)
-        const success = await addProduct(values)
-        setSubmitting(false)
-        if (success) {
-            toast.push(
-                <Notification
-                    title={'Successfuly added'}
-                    type="success"
-                    duration={2500}
-                >
-                    Product successfuly added
-                </Notification>,
-                {
-                    placement: 'top-center',
-                }
-            )
-            navigate('/app/reservations/reservations-list')
-        }
-    }
-
-    const handleDiscard = () => {
-        navigate('/app/reservations/reservations-list')
-    }
+    useEffect(() => {
+      openNotification("Success", "hello there !", "success")
+    })
 
     return (
         <>
-            <ReservationsForm
-                type="new"
-                onFormSubmit={handleFormSubmit}
-                onDiscard={handleDiscard}
-            />
+          <AdaptableCard className="mb-4" divider isLastChild>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div className="col-span-1">
+                <ThemeProvider theme={updatedTheme}>
+                <ReservationsCreateForm
+                  onSuccess={(fields) => {
+                    console.log('success')
+                    openNotification("Success", "Reservation added", "success")
+                  }}
+                  onError={(error) => {
+                    console.log(error)
+                  }}
+                />
+                </ThemeProvider>
+                </div>
+              </div>
+          </AdaptableCard>
         </>
     )
 }

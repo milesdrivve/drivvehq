@@ -68,7 +68,7 @@ const appsRoute = [
           header: 'Add New Customer',
       },
     },
-    {
+    /*{
       key: 'appsCustomers.toDo',
       path: `${APP_PREFIX_PATH}/customers/todo`,
       component: React.lazy(() => import('views/customers/ToDo')),
@@ -76,7 +76,7 @@ const appsRoute = [
       meta: {
           header: 'ToDo',
       },
-    },
+    },*/
     {
       key: 'appsCustomers.updateStatus',
       path: `${APP_PREFIX_PATH}/customers/update-status`,
@@ -96,8 +96,8 @@ const appsRoute = [
       },
     },
     {
-        key: 'appsFleet.productList',
-        path: `${APP_PREFIX_PATH}/fleet/product-list`,
+        key: 'appsFleet.fleetList',
+        path: `${APP_PREFIX_PATH}/fleet/fleet-list`,
         component: React.lazy(() => import('views/fleet/FleetList')),
         authority: [ADMIN, USER],
         meta: {
@@ -105,18 +105,18 @@ const appsRoute = [
       },
     },
     {
-        key: 'appsFleet.productEdit',
-        path: `${APP_PREFIX_PATH}/fleet/product-edit/:productId`,
-        component: React.lazy(() => import('views/fleet/ProductEdit')),
+        key: 'appsFleet.fleetEdit',
+        path: `${APP_PREFIX_PATH}/fleet/fleet-edit/:fleetId`,
+        component: React.lazy(() => import('views/fleet/FleetEdit')),
         authority: [ADMIN, USER],
         meta: {
             header: 'Edit Vehicle',
         },
     },
     {
-        key: 'appsFleet.productNew',
-        path: `${APP_PREFIX_PATH}/fleet/product-new`,
-        component: React.lazy(() => import('views/fleet/ProductNew')),
+        key: 'appsFleet.fleetNew',
+        path: `${APP_PREFIX_PATH}/fleet/fleet-new`,
+        component: React.lazy(() => import('views/fleet/FleetNew')),
         authority: [ADMIN, USER],
         meta: {
             header: 'Add New Vehicle',

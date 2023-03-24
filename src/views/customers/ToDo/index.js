@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { toast, Notification } from 'components/ui'
-import { apiAddToDo, apiGetToDo } from 'services/ToDoService';
+//import { apiAddToDo, apiGetToDo } from 'services/ToDoService';
 
 const initialState = { name: '', description: '' }
 
@@ -30,9 +30,9 @@ const ToDo = () => {
 
   async function fetchTodos() {
     try {
-      const todoData = await apiGetToDo()
-      const todos = todoData.data.listToDos.items
-      setTodos(todos)
+      //const todoData = await apiGetToDo()
+      //const todos = todoData.data.listToDos.items
+      //setTodos(todos)
     } catch (err) {
       console.log('error fetching todo:', err)
       openNotification("Error", err, "danger")
@@ -47,7 +47,7 @@ const ToDo = () => {
       setFormState(initialState)
       console.log('addTodo...')
       console.log(todo)
-      await apiAddToDo({input: todo})
+      //await apiAddToDo({input: todo})
       openNotification("Success", "Todo added", "success")
     } catch (err) {
       console.log('error creating todo:', err)
