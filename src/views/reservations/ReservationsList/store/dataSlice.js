@@ -6,8 +6,7 @@ export const getTableData = createAsyncThunk(
     async (data) => {
         //const response = await apiGetReservationList(data)
         const response = await apiListReservations(data)
-        console.log(response)
-        return response.data
+        return response
     }
 )
 

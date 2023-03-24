@@ -125,7 +125,7 @@ const ListTable = () => {
             },
             {
               Header: 'Status',
-              accessor: 'Status',
+              accessor: 'status',
               sortable: false,
             },
             {
@@ -144,13 +144,23 @@ const ListTable = () => {
               sortable: false,
             },
             {
+              Header: 'Pickup Location',
+              accessor: 'pickup_location',
+              sortable: false,
+            },
+            {
               Header: 'Car',
-              accessor: 'ReservationCars',
+              accessor: 'car',
               sortable: false,
             },
             {
               Header: 'Price',
-              accessor: 'ReservationPrices',
+              accessor: 'price',
+              sortable: false,
+            },
+            {
+              Header: 'Deposit',
+              accessor: 'deposit',
               sortable: false,
             },
             {
