@@ -8,6 +8,9 @@ const appsRoute = [
         path: `${APP_PREFIX_PATH}/reservations/reservations-list`,
         component: React.lazy(() => import('views/reservations/ReservationsList')),
         authority: [ADMIN, USER],
+        meta: {
+          header: 'Reservations',
+        },
     },
     {
       key: 'appsReservations.reservationsEdit',
@@ -39,6 +42,9 @@ const appsRoute = [
         path: `${APP_PREFIX_PATH}/customers/customer-list`,
         component: React.lazy(() => import('views/customers/CustomersList')),
         authority: [ADMIN, USER],
+        meta: {
+          header: 'Customers',
+        },
     },
     {
         key: 'appsCustomers.customerDetails',
@@ -101,7 +107,7 @@ const appsRoute = [
         component: React.lazy(() => import('views/fleet/FleetList')),
         authority: [ADMIN, USER],
         meta: {
-          header: 'Vehicles',
+          header: 'Cars',
       },
     },
     {
@@ -110,7 +116,7 @@ const appsRoute = [
         component: React.lazy(() => import('views/fleet/FleetEdit')),
         authority: [ADMIN, USER],
         meta: {
-            header: 'Edit Vehicle',
+            header: 'Edit Car',
         },
     },
     {
@@ -119,7 +125,7 @@ const appsRoute = [
         component: React.lazy(() => import('views/fleet/FleetNew')),
         authority: [ADMIN, USER],
         meta: {
-            header: 'Add New Vehicle',
+            header: 'Add New Car',
         },
     },
     {

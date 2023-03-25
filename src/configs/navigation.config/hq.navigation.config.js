@@ -38,7 +38,7 @@ const hqNavigationConfig = [
                     {
                       key: 'appsCustomers.customerList',
                       path: `${APP_PREFIX_PATH}/customers/customer-list`,
-                      title: 'Customer List',
+                      title: 'Customers',
                       translateKey: 'nav.appsCustomers.customerList',
                       icon: '',
                       type: NAV_ITEM_TYPE_ITEM,
@@ -119,7 +119,7 @@ const hqNavigationConfig = [
                   {
                     key: 'appsReservations.reservationList',
                     path: `${APP_PREFIX_PATH}/reservations/reservations-list`,
-                    title: 'Reservations List',
+                    title: 'Reservations',
                     translateKey: 'nav.appsReservations.reservationsList',
                     icon: '',
                     type: NAV_ITEM_TYPE_ITEM,
@@ -180,7 +180,7 @@ const hqNavigationConfig = [
                 {
                   key: 'appsFleet.fleetList',
                   path: `${APP_PREFIX_PATH}/fleet/fleet-list`,
-                  title: 'Car List',
+                  title: 'Cars',
                   translateKey: 'nav.appsFleet.fleetList',
                   icon: '',
                   type: NAV_ITEM_TYPE_ITEM,

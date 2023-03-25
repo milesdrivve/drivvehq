@@ -17,42 +17,6 @@ import { useNavigate } from 'react-router-dom'
 import cloneDeep from 'lodash/cloneDeep'
 import dayjs from 'dayjs'
 
-/*const orderStatusColor = {
-    0: {
-        label: 'New',
-        dotClass: 'bg-emerald-500',
-        textClass: 'text-emerald-500',
-    },
-    1: {
-        label: 'Pending',
-        dotClass: 'bg-amber-500',
-        textClass: 'text-amber-500',
-    },
-    2: {
-        label: 'Declined',
-        dotClass: 'bg-red-500',
-        textClass: 'text-red-500'
-    },
-}*/
-
-/*const OrderColumn = ({ row }) => {
-    const { textTheme } = useThemeClass()
-    const navigate = useNavigate()
-
-    const onView = useCallback(() => {
-        navigate(`/app/customers/customer-edit?id=8`)
-    }, [navigate, row])
-
-    return (
-        <span
-            className={`cursor-pointer select-none font-semibold hover:${textTheme}`}
-            onClick={onView}
-        >
-            #{row.id}
-        </span>
-    )
-}*/
-
 const ActionColumn = ({ row }) => {
     const dispatch = useDispatch()
     const { textTheme } = useThemeClass()

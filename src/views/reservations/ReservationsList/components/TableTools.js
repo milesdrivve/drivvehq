@@ -6,8 +6,11 @@ import TableSearch from './TableSearch'
 import TableActions from './TableActions'
 import { useDispatch, useSelector } from 'react-redux'
 import cloneDeep from 'lodash/cloneDeep'
+import { useNavigate } from 'react-router-dom'
+import { HiOutlinePlus } from 'react-icons/hi'
 
 const TableTools = () => {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const inputRef = useRef()
@@ -40,6 +43,10 @@ const TableTools = () => {
         fetchData(newTableData)
     }
 
+    const addNew = () => {
+      navigate(`/app/reservations/reservations-new/`)
+    }
+
     return (
         <div className="md:flex items-center justify-between gap-4">
             <div className="md:flex items-center gap-4">
@@ -55,6 +62,11 @@ const TableTools = () => {
             </div>
             <div className="mb-4">
                 <TableActions />
+            </div>
+            <div className="mb-4">
+                <Button size="sm" onClick={addNew} icon={<HiOutlinePlus />}>
+                    Add New
+                </Button>
             </div>
         </div>
     )

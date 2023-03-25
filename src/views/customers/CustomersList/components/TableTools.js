@@ -4,19 +4,19 @@ import { getTableData, setTableData, setFilterData } from '../store/dataSlice'
 import TableSearch from './TableSearch'
 import { useDispatch, useSelector } from 'react-redux'
 import cloneDeep from 'lodash/cloneDeep'
+import { useNavigate } from 'react-router-dom'
+import { HiOutlinePlus } from 'react-icons/hi'
 
 const TableTools = () => {
-    const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
     const inputRef = useRef()
 
     const tableData = useSelector((state) => state.customerList.data.tableData)
 
     const handleInputChange = (val) => {
-        console.log('handleInputChange')
-        console.log(tableData)
         const newTableData = cloneDeep(tableData)
-        console.log(newTableData)
         newTableData.query = val
         newTableData.pageIndex = 1
         if (typeof val === 'string' && val.length > 1) {
@@ -41,6 +41,10 @@ const TableTools = () => {
         fetchData(newTableData)
     }
 
+    const addNew = () => {
+      navigate(`/app/customers/customer-new/`)
+    }
+
     return (
         <div className="md:flex items-center justify-between gap-4">
             <div className="md:flex items-center gap-4">
@@ -52,7 +56,12 @@ const TableTools = () => {
             </div>
             <div className="mb-4">
                 <Button size="sm" onClick={onClearAll}>
-                    Clear All
+                  Clear All
+                </Button>
+            </div>
+            <div className="mb-4">
+                <Button size="sm" onClick={addNew} icon={<HiOutlinePlus />}>
+                    Add New
                 </Button>
             </div>
         </div>
