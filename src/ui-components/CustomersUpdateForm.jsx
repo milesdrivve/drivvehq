@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SelectField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Customers } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -31,7 +37,7 @@ export default function CustomersUpdateForm(props) {
     id_number: "",
     drivers_licence: "",
     salary: "",
-    status: "",
+    status: undefined,
   };
   const [first_name, setFirst_name] = React.useState(initialValues.first_name);
   const [last_name, setLast_name] = React.useState(initialValues.last_name);
@@ -375,10 +381,10 @@ export default function CustomersUpdateForm(props) {
         hasError={errors.salary?.hasError}
         {...getOverrideProps(overrides, "salary")}
       ></TextField>
-      <TextField
+      <SelectField
         label="Status"
-        isRequired={false}
-        isReadOnly={false}
+        placeholder="Select"
+        isDisabled={false}
         value={status}
         onChange={(e) => {
           let { value } = e.target;
@@ -405,7 +411,53 @@ export default function CustomersUpdateForm(props) {
         errorMessage={errors.status?.errorMessage}
         hasError={errors.status?.hasError}
         {...getOverrideProps(overrides, "status")}
-      ></TextField>
+      >
+        <option
+          children="New"
+          value="New"
+          {...getOverrideProps(overrides, "statusoption0")}
+        ></option>
+        <option
+          children="Under Review"
+          value="Under Review"
+          {...getOverrideProps(overrides, "statusoption1")}
+        ></option>
+        <option
+          children="Under Supplier Review"
+          value="Under Supplier Review"
+          {...getOverrideProps(overrides, "statusoption2")}
+        ></option>
+        <option
+          children="Approved"
+          value="Approved"
+          {...getOverrideProps(overrides, "statusoption3")}
+        ></option>
+        <option
+          children="Declined"
+          value="Declined"
+          {...getOverrideProps(overrides, "statusoption4")}
+        ></option>
+        <option
+          children="Cancelled"
+          value="Cancelled"
+          {...getOverrideProps(overrides, "statusoption5")}
+        ></option>
+        <option
+          children="Collecting Car"
+          value="Collecting Car"
+          {...getOverrideProps(overrides, "statusoption6")}
+        ></option>
+        <option
+          children="Car Request WIth Supplier"
+          value="Car Request WIth Supplier"
+          {...getOverrideProps(overrides, "statusoption7")}
+        ></option>
+        <option
+          children="Completed"
+          value="Completed"
+          {...getOverrideProps(overrides, "statusoption8")}
+        ></option>
+      </SelectField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

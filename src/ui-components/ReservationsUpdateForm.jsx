@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SelectField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Reservations } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -27,7 +33,7 @@ export default function ReservationsUpdateForm(props) {
     pickup_date: "",
     return_date: "",
     pickup_location: "",
-    status: "",
+    status: undefined,
     car: "",
     price: "",
     deposit: "",
@@ -248,10 +254,10 @@ export default function ReservationsUpdateForm(props) {
         hasError={errors.pickup_location?.hasError}
         {...getOverrideProps(overrides, "pickup_location")}
       ></TextField>
-      <TextField
+      <SelectField
         label="Status"
-        isRequired={false}
-        isReadOnly={false}
+        placeholder="Select"
+        isDisabled={false}
         value={status}
         onChange={(e) => {
           let { value } = e.target;
@@ -277,7 +283,23 @@ export default function ReservationsUpdateForm(props) {
         errorMessage={errors.status?.errorMessage}
         hasError={errors.status?.hasError}
         {...getOverrideProps(overrides, "status")}
-      ></TextField>
+      >
+        <option
+          children="New"
+          value="New"
+          {...getOverrideProps(overrides, "statusoption0")}
+        ></option>
+        <option
+          children="On rent"
+          value="On rent"
+          {...getOverrideProps(overrides, "statusoption1")}
+        ></option>
+        <option
+          children="Closed"
+          value="Closed"
+          {...getOverrideProps(overrides, "statusoption2")}
+        ></option>
+      </SelectField>
       <TextField
         label="Car"
         isRequired={false}

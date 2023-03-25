@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Customers } from "../models";
 export declare type ValidationResponse = {
@@ -43,7 +43,7 @@ export declare type CustomersUpdateFormOverridesProps = {
     id_number?: PrimitiveOverrideProps<TextFieldProps>;
     drivers_licence?: PrimitiveOverrideProps<TextFieldProps>;
     salary?: PrimitiveOverrideProps<TextFieldProps>;
-    status?: PrimitiveOverrideProps<TextFieldProps>;
+    status?: PrimitiveOverrideProps<SelectFieldProps>;
 } & EscapeHatchProps;
 export declare type CustomersUpdateFormProps = React.PropsWithChildren<{
     overrides?: CustomersUpdateFormOverridesProps | undefined | null;

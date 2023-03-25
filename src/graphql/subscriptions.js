@@ -1,6 +1,66 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateCars = /* GraphQL */ `
+  subscription OnCreateCars($filter: ModelSubscriptionCarsFilterInput) {
+    onCreateCars(filter: $filter) {
+      id
+      make
+      model
+      variant
+      fuel
+      transmission
+      year
+      price
+      deposit
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateCars = /* GraphQL */ `
+  subscription OnUpdateCars($filter: ModelSubscriptionCarsFilterInput) {
+    onUpdateCars(filter: $filter) {
+      id
+      make
+      model
+      variant
+      fuel
+      transmission
+      year
+      price
+      deposit
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteCars = /* GraphQL */ `
+  subscription OnDeleteCars($filter: ModelSubscriptionCarsFilterInput) {
+    onDeleteCars(filter: $filter) {
+      id
+      make
+      model
+      variant
+      fuel
+      transmission
+      year
+      price
+      deposit
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const onCreateReservations = /* GraphQL */ `
   subscription OnCreateReservations(
     $filter: ModelSubscriptionReservationsFilterInput
@@ -14,7 +74,6 @@ export const onCreateReservations = /* GraphQL */ `
       car
       price
       deposit
-      customersID
       createdAt
       updatedAt
       _version
@@ -36,7 +95,6 @@ export const onUpdateReservations = /* GraphQL */ `
       car
       price
       deposit
-      customersID
       createdAt
       updatedAt
       _version
@@ -58,7 +116,6 @@ export const onDeleteReservations = /* GraphQL */ `
       car
       price
       deposit
-      customersID
       createdAt
       updatedAt
       _version
@@ -81,26 +138,6 @@ export const onCreateCustomers = /* GraphQL */ `
       drivers_licence
       salary
       status
-      CustomersReservations {
-        items {
-          id
-          pickup_date
-          return_date
-          pickup_location
-          status
-          car
-          price
-          deposit
-          customersID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
@@ -123,26 +160,6 @@ export const onUpdateCustomers = /* GraphQL */ `
       drivers_licence
       salary
       status
-      CustomersReservations {
-        items {
-          id
-          pickup_date
-          return_date
-          pickup_location
-          status
-          car
-          price
-          deposit
-          customersID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
@@ -165,26 +182,6 @@ export const onDeleteCustomers = /* GraphQL */ `
       drivers_licence
       salary
       status
-      CustomersReservations {
-        items {
-          id
-          pickup_date
-          return_date
-          pickup_location
-          status
-          car
-          price
-          deposit
-          customersID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version

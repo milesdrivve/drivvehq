@@ -1,6 +1,88 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getCars = /* GraphQL */ `
+  query GetCars($id: ID!) {
+    getCars(id: $id) {
+      id
+      make
+      model
+      variant
+      fuel
+      transmission
+      year
+      price
+      deposit
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const listCars = /* GraphQL */ `
+  query ListCars(
+    $filter: ModelCarsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCars(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        make
+        model
+        variant
+        fuel
+        transmission
+        year
+        price
+        deposit
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncCars = /* GraphQL */ `
+  query SyncCars(
+    $filter: ModelCarsFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncCars(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        make
+        model
+        variant
+        fuel
+        transmission
+        year
+        price
+        deposit
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getReservations = /* GraphQL */ `
   query GetReservations($id: ID!) {
     getReservations(id: $id) {
@@ -80,42 +162,6 @@ export const syncReservations = /* GraphQL */ `
     }
   }
 `;
-export const reservationsByCustomersID = /* GraphQL */ `
-  query ReservationsByCustomersID(
-    $customersID: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelReservationsFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    reservationsByCustomersID(
-      customersID: $customersID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        pickup_date
-        return_date
-        pickup_location
-        status
-        car
-        price
-        deposit
-        customersID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
 export const getCustomers = /* GraphQL */ `
   query GetCustomers($id: ID!) {
     getCustomers(id: $id) {
@@ -128,26 +174,6 @@ export const getCustomers = /* GraphQL */ `
       drivers_licence
       salary
       status
-      CustomersReservations {
-        items {
-          id
-          pickup_date
-          return_date
-          pickup_location
-          status
-          car
-          price
-          deposit
-          customersID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
@@ -173,10 +199,6 @@ export const listCustomers = /* GraphQL */ `
         drivers_licence
         salary
         status
-        CustomersReservations {
-          nextToken
-          startedAt
-        }
         createdAt
         updatedAt
         _version
@@ -211,10 +233,6 @@ export const syncCustomers = /* GraphQL */ `
         drivers_licence
         salary
         status
-        CustomersReservations {
-          nextToken
-          startedAt
-        }
         createdAt
         updatedAt
         _version

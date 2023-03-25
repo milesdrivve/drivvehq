@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
     hasError: boolean;
@@ -35,8 +35,8 @@ export declare type ReservationsCreateFormOverridesProps = {
     ReservationsCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     pickup_date?: PrimitiveOverrideProps<TextFieldProps>;
     return_date?: PrimitiveOverrideProps<TextFieldProps>;
-    pickup_location?: PrimitiveOverrideProps<TextFieldProps>;
-    status?: PrimitiveOverrideProps<TextFieldProps>;
+    pickup_location?: PrimitiveOverrideProps<SelectFieldProps>;
+    status?: PrimitiveOverrideProps<SelectFieldProps>;
     car?: PrimitiveOverrideProps<TextFieldProps>;
     price?: PrimitiveOverrideProps<TextFieldProps>;
     deposit?: PrimitiveOverrideProps<TextFieldProps>;

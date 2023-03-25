@@ -7,7 +7,7 @@
 export { default as studioTheme } from "./studioTheme";
 export { default as CustomersCreateForm } from "./CustomersCreateForm";
 export { default as CustomersUpdateForm } from "./CustomersUpdateForm";
+export { default as ReservationsUpdateForm } from "./ReservationsUpdateForm";
+export { default as ReservationsCreateForm } from "./ReservationsCreateForm";
 export { default as CarsCreateForm } from "./CarsCreateForm";
 export { default as CarsUpdateForm } from "./CarsUpdateForm";
-export { default as ReservationsCreateForm } from "./ReservationsCreateForm";
-export { default as ReservationsUpdateForm } from "./ReservationsUpdateForm";

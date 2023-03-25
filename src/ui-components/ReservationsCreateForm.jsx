@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SelectField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Reservations } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -25,8 +31,8 @@ export default function ReservationsCreateForm(props) {
   const initialValues = {
     pickup_date: "",
     return_date: "",
-    pickup_location: "",
-    status: "",
+    pickup_location: undefined,
+    status: undefined,
     car: "",
     price: "",
     deposit: "",
@@ -201,10 +207,10 @@ export default function ReservationsCreateForm(props) {
         hasError={errors.return_date?.hasError}
         {...getOverrideProps(overrides, "return_date")}
       ></TextField>
-      <TextField
+      <SelectField
         label="Pickup location"
-        isRequired={false}
-        isReadOnly={false}
+        placeholder="Select"
+        isDisabled={false}
         value={pickup_location}
         onChange={(e) => {
           let { value } = e.target;
@@ -230,11 +236,27 @@ export default function ReservationsCreateForm(props) {
         errorMessage={errors.pickup_location?.errorMessage}
         hasError={errors.pickup_location?.hasError}
         {...getOverrideProps(overrides, "pickup_location")}
-      ></TextField>
-      <TextField
+      >
+        <option
+          children="Cape Town"
+          value="Cape Town"
+          {...getOverrideProps(overrides, "pickup_locationoption0")}
+        ></option>
+        <option
+          children="Johannesburg"
+          value="Johannesburg"
+          {...getOverrideProps(overrides, "pickup_locationoption1")}
+        ></option>
+        <option
+          children="Pretoria"
+          value="Pretoria"
+          {...getOverrideProps(overrides, "pickup_locationoption2")}
+        ></option>
+      </SelectField>
+      <SelectField
         label="Status"
-        isRequired={false}
-        isReadOnly={false}
+        placeholder="Select"
+        isDisabled={false}
         value={status}
         onChange={(e) => {
           let { value } = e.target;
@@ -260,7 +282,23 @@ export default function ReservationsCreateForm(props) {
         errorMessage={errors.status?.errorMessage}
         hasError={errors.status?.hasError}
         {...getOverrideProps(overrides, "status")}
-      ></TextField>
+      >
+        <option
+          children="New"
+          value="New"
+          {...getOverrideProps(overrides, "statusoption0")}
+        ></option>
+        <option
+          children="On rent"
+          value="On rent"
+          {...getOverrideProps(overrides, "statusoption1")}
+        ></option>
+        <option
+          children="Closed"
+          value="Closed"
+          {...getOverrideProps(overrides, "statusoption2")}
+        ></option>
+      </SelectField>
       <TextField
         label="Car"
         isRequired={false}

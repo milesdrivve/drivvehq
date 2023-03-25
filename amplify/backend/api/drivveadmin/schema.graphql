@@ -31,5 +31,4 @@ type Customers @model @auth(rules: [{allow: public}]) {
   drivers_licence: String
   salary: String
   status: String
-}
- 
+} 

@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Reservations } from "../models";
 export declare type ValidationResponse = {
@@ -37,7 +37,7 @@ export declare type ReservationsUpdateFormOverridesProps = {
     pickup_date?: PrimitiveOverrideProps<TextFieldProps>;
     return_date?: PrimitiveOverrideProps<TextFieldProps>;
     pickup_location?: PrimitiveOverrideProps<TextFieldProps>;
-    status?: PrimitiveOverrideProps<TextFieldProps>;
+    status?: PrimitiveOverrideProps<SelectFieldProps>;
     car?: PrimitiveOverrideProps<TextFieldProps>;
     price?: PrimitiveOverrideProps<TextFieldProps>;
     deposit?: PrimitiveOverrideProps<TextFieldProps>;
