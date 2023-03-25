@@ -178,8 +178,8 @@ const hqNavigationConfig = [
                     subMenu: [],
                 },
                 {
-                  key: 'appsFleet.productList',
-                  path: `${APP_PREFIX_PATH}/fleet/product-list`,
+                  key: 'appsFleet.fleetList',
+                  path: `${APP_PREFIX_PATH}/fleet/fleet-list`,
                   title: 'Car List',
                   translateKey: 'nav.appsFleet.fleetList',
                   icon: '',

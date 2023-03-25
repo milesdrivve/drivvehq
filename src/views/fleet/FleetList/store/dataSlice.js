@@ -1,12 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-//import { apiGetSalesOrders, apiDeleteSalesOrders } from 'services/SalesService'
-import { apiGetFleetList } from 'services/FleetService'
+import { apiListCars } from 'services/FleetService'
 
-export const getOrders = createAsyncThunk(
-    'fleetList/data/getOrders',
+export const getTableData = createAsyncThunk(
+    'carsList/data/getTableData',
     async (data) => {
-        const response = await apiGetFleetList(data)
-        return response.data
+        const response = await apiListCars(data)
+        return response
     }
 )
 
@@ -22,7 +21,7 @@ export const initialTableData = {
 }
 
 const dataSlice = createSlice({
-    name: 'fleetList/data',
+    name: 'carList/data',
     initialState: {
         loading: false,
         orderList: [],
@@ -33,21 +32,24 @@ const dataSlice = createSlice({
             state.orderList = action.payload
         },
         setTableData: (state, action) => {
-            state.tableData = action.payload
+          state.tableData = action.payload
+        },
+        setFilterData: (state, action) => {
+          state.filterData = action.payload
         },
     },
     extraReducers: {
-        [getOrders.fulfilled]: (state, action) => {
-            state.orderList = action.payload.data
-            state.tableData.total = action.payload.total
+        [getTableData.fulfilled]: (state, action) => {
+            state.orderList = action.payload.data?.listCars?.items
+            state.tableData.total = action.payload.data?.listCars?.nextToken || 0
             state.loading = false
         },
-        [getOrders.pending]: (state) => {
+        [getTableData.pending]: (state) => {
             state.loading = true
         },
     },
 })
 
-export const { setOrderList, setTableData } = dataSlice.actions
+export const { setOrderList, setTableData, setFilterData } = dataSlice.actions
 
 export default dataSlice.reducer

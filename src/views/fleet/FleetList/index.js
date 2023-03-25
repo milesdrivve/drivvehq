@@ -2,11 +2,11 @@ import React from 'react'
 import reducer from './store'
 import { injectReducer } from 'store/index'
 import { AdaptableCard } from 'components/shared'
-import OrdersTable from './components/OrdersTable'
+import ListTable from './components/ListTable'
 //import OrdersTableTools from './components/OrdersTableTools'
 //import OrderDeleteConfirmation from './components/OrderDeleteConfirmation'
 
-injectReducer('fleetList', reducer)
+injectReducer('carList', reducer)
 
 const FleetList = () => {
     return (
@@ -15,7 +15,7 @@ const FleetList = () => {
                 <h3 className="mb-4 lg:mb-0">Orders</h3>
                 <OrdersTableTools />
             </div>*/}
-            <OrdersTable />
+            <ListTable />
             {/*<OrderDeleteConfirmation />*/}
         </AdaptableCard>
     )
