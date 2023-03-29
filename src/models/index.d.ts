@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled, AsyncCollection } from "@aws-amplify/datastore";
 
 
 
@@ -54,13 +54,24 @@ type EagerReservations = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
+  readonly reservation_id?: string | null;
   readonly pickup_date?: string | null;
   readonly return_date?: string | null;
   readonly pickup_location?: string | null;
-  readonly status?: string | null;
-  readonly car?: string | null;
+  readonly make?: string | null;
+  readonly model?: string | null;
+  readonly variant?: string | null;
   readonly price?: number | null;
   readonly deposit?: number | null;
+  readonly status?: string | null;
+  readonly customer_id?: string | null;
+  readonly start_date?: string | null;
+  readonly duration?: number | null;
+  readonly end_date?: string | null;
+  readonly class?: string | null;
+  readonly test_1?: string | null;
+  readonly test_2?: (string | null)[] | null;
+  readonly customersID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -71,13 +82,24 @@ type LazyReservations = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
+  readonly reservation_id?: string | null;
   readonly pickup_date?: string | null;
   readonly return_date?: string | null;
   readonly pickup_location?: string | null;
-  readonly status?: string | null;
-  readonly car?: string | null;
+  readonly make?: string | null;
+  readonly model?: string | null;
+  readonly variant?: string | null;
   readonly price?: number | null;
   readonly deposit?: number | null;
+  readonly status?: string | null;
+  readonly customer_id?: string | null;
+  readonly start_date?: string | null;
+  readonly duration?: number | null;
+  readonly end_date?: string | null;
+  readonly class?: string | null;
+  readonly test_1?: string | null;
+  readonly test_2?: (string | null)[] | null;
+  readonly customersID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -99,9 +121,27 @@ type EagerCustomers = {
   readonly email?: string | null;
   readonly phone?: string | null;
   readonly id_number?: string | null;
-  readonly drivers_licence?: string | null;
-  readonly salary?: string | null;
+  readonly id_expiry?: string | null;
+  readonly drivers_licence_expiry?: string | null;
   readonly status?: string | null;
+  readonly date_reviewed?: string | null;
+  readonly address_1?: string | null;
+  readonly address_2?: string | null;
+  readonly city?: string | null;
+  readonly province?: string | null;
+  readonly postal_code?: string | null;
+  readonly salary_nett?: string | null;
+  readonly drivers_licence?: string | null;
+  readonly id_file?: string | null;
+  readonly drivers_licence_file?: string | null;
+  readonly poa_fi?: string | null;
+  readonly bank_statement_1_file?: string | null;
+  readonly bank_statement_2_file?: string | null;
+  readonly bank_statement_3_file?: string | null;
+  readonly salary_slip_1_file?: string | null;
+  readonly salary_slip_2_file?: string | null;
+  readonly salary_slip_3_file?: string | null;
+  readonly CustomersReservations?: (Reservations | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -117,9 +157,27 @@ type LazyCustomers = {
   readonly email?: string | null;
   readonly phone?: string | null;
   readonly id_number?: string | null;
-  readonly drivers_licence?: string | null;
-  readonly salary?: string | null;
+  readonly id_expiry?: string | null;
+  readonly drivers_licence_expiry?: string | null;
   readonly status?: string | null;
+  readonly date_reviewed?: string | null;
+  readonly address_1?: string | null;
+  readonly address_2?: string | null;
+  readonly city?: string | null;
+  readonly province?: string | null;
+  readonly postal_code?: string | null;
+  readonly salary_nett?: string | null;
+  readonly drivers_licence?: string | null;
+  readonly id_file?: string | null;
+  readonly drivers_licence_file?: string | null;
+  readonly poa_fi?: string | null;
+  readonly bank_statement_1_file?: string | null;
+  readonly bank_statement_2_file?: string | null;
+  readonly bank_statement_3_file?: string | null;
+  readonly salary_slip_1_file?: string | null;
+  readonly salary_slip_2_file?: string | null;
+  readonly salary_slip_3_file?: string | null;
+  readonly CustomersReservations: AsyncCollection<Reservations>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

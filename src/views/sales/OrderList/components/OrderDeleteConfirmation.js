@@ -8,6 +8,8 @@ import {
     setSelectedRows,
 } from '../store/stateSlice'
 import { deleteOrders, getOrders } from '../store/dataSlice'
+import { DataStore } from 'aws-amplify'
+import { Reservations } from '../../../../models'
 
 const OrderDeleteConfirmation = () => {
     const dispatch = useDispatch()
@@ -32,7 +34,7 @@ const OrderDeleteConfirmation = () => {
         }
     }
 
-    const onDelete = async () => {
+    /*const onDelete = async () => {
         dispatch(setDeleteMode(''))
 
         if (deleteMode === 'single') {
@@ -46,6 +48,12 @@ const OrderDeleteConfirmation = () => {
             deleteSucceed(success, selectedRows.length)
             dispatch(setSelectedRows([]))
         }
+    }*/
+    const onDelete = async () => {
+      console.log('onDelete')
+      const toDelete = await DataStore.query(Reservations, '1ed06ea4-8a9e-4574-a565-df5af4b4546e');
+      console.log(toDelete)
+      DataStore.delete(toDelete);
     }
 
     const deleteSucceed = (success, orders) => {

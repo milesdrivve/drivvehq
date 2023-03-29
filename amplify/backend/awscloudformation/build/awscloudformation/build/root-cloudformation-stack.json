@@ -167,7 +167,7 @@
             "Ref": "UnauthRoleName"
           },
           "S3DeploymentBucket": "amplify-drivveadmin-dev-81044-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/8957d161444e2c05193c8afc847eaa144546aa0a",
+          "S3DeploymentRootKey": "amplify-appsync-files/b8d3d0ddcdd2cec6bed12852d06c4aa98c81dfef",
           "env": "dev"
         }
       }

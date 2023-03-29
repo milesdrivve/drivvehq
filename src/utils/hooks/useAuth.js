@@ -19,6 +19,9 @@ function useAuth() {
     const signIn = async (values) => {
         try {
             const resp = await apiSignIn(values)
+            console.log('resp')
+            console.log(resp)
+
             if (resp.data) {
                 const { token } = resp.data
                 dispatch(onSignInSuccess(token))

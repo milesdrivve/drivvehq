@@ -118,6 +118,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "reservation_id": {
+                    "name": "reservation_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "pickup_date": {
                     "name": "pickup_date",
                     "isArray": false,
@@ -139,15 +146,22 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "status": {
-                    "name": "status",
+                "make": {
+                    "name": "make",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "car": {
-                    "name": "car",
+                "model": {
+                    "name": "model",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "variant": {
+                    "name": "variant",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -164,6 +178,70 @@ export const schema = {
                     "name": "deposit",
                     "isArray": false,
                     "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "customer_id": {
+                    "name": "customer_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "start_date": {
+                    "name": "start_date",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "duration": {
+                    "name": "duration",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "end_date": {
+                    "name": "end_date",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "class": {
+                    "name": "class",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "test_1": {
+                    "name": "test_1",
+                    "isArray": false,
+                    "type": "AWSJSON",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "test_2": {
+                    "name": "test_2",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "customersID": {
+                    "name": "customersID",
+                    "isArray": false,
+                    "type": "ID",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -190,6 +268,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byCustomers",
+                        "fields": [
+                            "customersID"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -254,17 +341,17 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "drivers_licence": {
-                    "name": "drivers_licence",
+                "id_expiry": {
+                    "name": "id_expiry",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 },
-                "salary": {
-                    "name": "salary",
+                "drivers_licence_expiry": {
+                    "name": "drivers_licence_expiry",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -274,6 +361,141 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "date_reviewed": {
+                    "name": "date_reviewed",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "address_1": {
+                    "name": "address_1",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "address_2": {
+                    "name": "address_2",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "city": {
+                    "name": "city",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "province": {
+                    "name": "province",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "postal_code": {
+                    "name": "postal_code",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "salary_nett": {
+                    "name": "salary_nett",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "drivers_licence": {
+                    "name": "drivers_licence",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "id_file": {
+                    "name": "id_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "drivers_licence_file": {
+                    "name": "drivers_licence_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "poa_fi": {
+                    "name": "poa_fi",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "bank_statement_1_file": {
+                    "name": "bank_statement_1_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "bank_statement_2_file": {
+                    "name": "bank_statement_2_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "bank_statement_3_file": {
+                    "name": "bank_statement_3_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "salary_slip_1_file": {
+                    "name": "salary_slip_1_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "salary_slip_2_file": {
+                    "name": "salary_slip_2_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "salary_slip_3_file": {
+                    "name": "salary_slip_3_file",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "CustomersReservations": {
+                    "name": "CustomersReservations",
+                    "isArray": true,
+                    "type": {
+                        "model": "Reservations"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "customersID"
+                        ]
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -321,5 +543,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "22501196ac77f992dd612be4d17fab97"
+    "version": "774f0cdd99ca77f1c92e0955f81e3a71"
 };

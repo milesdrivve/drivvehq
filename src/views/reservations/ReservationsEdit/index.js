@@ -69,8 +69,8 @@ const ReservationsEdit = () => {
               <ReservationsUpdateForm
                 reservations={reservation}
                 onSuccess={(fields) => {
-                openNotification("Success", "Reservation updated", "success")
-              }} />
+                  openNotification("Success", "Reservation updated", "success")
+                }} />
               </ThemeProvider>
               </div>
             </div>

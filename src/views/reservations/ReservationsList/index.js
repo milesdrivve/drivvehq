@@ -5,7 +5,7 @@ import { AdaptableCard } from 'components/shared'
 import ListTable from './components/ListTable'
 import TableTools from './components/TableTools'
 //import OrdersTableTools from './components/OrdersTableTools'
-//import ListDeleteConfirmation from './components/ListDeleteConfirmation'
+import ListDeleteConfirmation from './components/ListDeleteConfirmation'
 
 injectReducer('reservationList', reducer)
 
@@ -18,7 +18,7 @@ const ReservationsList = () => {
                 {/*<OrdersTableTools />*/}
             </div>
             <ListTable />
-            {/*<ListDeleteConfirmation />*/}
+            <ListDeleteConfirmation />
         </AdaptableCard>
     )
 }

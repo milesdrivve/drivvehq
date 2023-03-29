@@ -3,13 +3,16 @@ import { DataStore } from 'aws-amplify'
 import { Customers } from '../../../models'
 import { AdaptableCard } from 'components/shared'
 import CustomersUpdateForm from 'ui-components/CustomersUpdateForm'
-import { toast, Notification } from 'components/ui'
+import FileUpload from '../CustomerEdit/components/FileUpload'
+import { toast, Notification, Tabs } from 'components/ui'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { ThemeProvider, createTheme } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import { studioTheme } from 'ui-components'
 import Theme from 'components/template/Theme'
+
+const { TabNav, TabList, TabContent } = Tabs
 
 const openNotification = (title, message, type) => {
   toast.push(
@@ -62,19 +65,40 @@ const CustomerEdit = () => {
 
   return (
       <>
-        <AdaptableCard className="mb-4" divider isLastChild>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="col-span-1">
-              <ThemeProvider theme={updatedTheme}>
-              <CustomersUpdateForm
-                customers={customer}
-                onSuccess={(fields) => {
-                openNotification("Success", "Customer updated", "success")
-              }} />
-              </ThemeProvider>
+        <Tabs defaultValue="tab1">
+          <TabList>
+              <TabNav value="tab1">Contact</TabNav>
+              <TabNav value="tab2">Files</TabNav>
+          </TabList>
+          <div className="p-4">
+            <TabContent value="tab1">
+              <div className="grid grid-cols-12 lg:grid-cols-12 gap-4">
+                <div className="lg:col-span-9">
+                  <AdaptableCard className="mb-4" divider isLastChild>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="col-span-1">
+                        <ThemeProvider theme={updatedTheme}>
+                          <CustomersUpdateForm
+                            customers={customer}
+                            onSuccess={(fields) => {
+                            openNotification("Success", "Customer updated", "success")
+                          }} />
+                        </ThemeProvider>
+                        </div>
+                      </div>
+                  </AdaptableCard>
+                </div>
               </div>
+            </TabContent>
+            <TabContent value="tab2">
+            <div className="grid grid-cols-12 lg:grid-cols-12 gap-4">
+                <div className="lg:col-span-3">
+                  <FileUpload />
+                </div>
             </div>
-        </AdaptableCard>
+            </TabContent>
+          </div>
+        </Tabs>
       </>
   )
 }

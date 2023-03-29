@@ -165,87 +165,35 @@ const ListTable = () => {
               sortable: false,
             },
             {
+              Header: 'Nett Salary',
+              accessor: 'salary_nett',
+              sortable: false,
+            },
+            {
               Header: 'Address',
-              accessor: 'Street',
+              accessor: 'address_1',
+              sortable: false,
+            },
+            {
+              Header: 'Address',
+              accessor: 'address_2',
               sortable: false,
             },
             {
               Header: 'City',
-              accessor: 'City',
+              accessor: 'city',
               sortable: false,
             },
             {
               Header: 'Province',
-              accessor: 'Province',
+              accessor: 'province',
               sortable: false,
             },
-            /*{
-              Header: 'Reservations',
-              accessor: 'id',
-              sortable: true,
-            },
             {
-              Header: 'Files',
+              Header: 'Created',
+              accessor: 'createdAt',
               sortable: false,
-              Cell: () => {
-                return (
-                    <span>3</span>
-                )
-              },
             },
-            {
-              Header: 'City',
-              sortable: false,
-              Cell: () => {
-                return (
-                  <span>
-                        City
-                        </span>
-                )
-              },
-            },
-            {
-              Header: 'Province',
-              sortable: false,
-              Cell: () => {
-                return (
-                  <span>
-                        Province
-                        </span>
-                )
-              },
-            },
-            {
-                Header: 'Status',
-                accessor: 'status',
-                sortable: false,
-                Cell: (props) => {
-                    const { status } = props.row.original
-                    return (
-                        <div className="flex items-center">
-                            <Badge
-                                className={orderStatusColor[status].dotClass}
-                            />
-                            <span
-                                className={`ml-2 rtl:mr-2 capitalize font-semibold ${orderStatusColor[status].textClass}`}
-                            >
-                                {orderStatusColor[status].label}
-                            </span>
-                        </div>
-                    )
-                },
-            },
-            {
-              Header: 'Date added',
-              accessor: 'date',
-              sortable: true,
-              Cell: (props) => {
-                  const row = props.row.original
-                  return (
-                      <span>{dayjs.unix(row.date).format('DD/MM/YYYY')}</span>
-                  )
-              },
-            },*/
             {
                 Header: '',
                 id: 'action',

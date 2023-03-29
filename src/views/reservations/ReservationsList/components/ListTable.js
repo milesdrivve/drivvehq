@@ -64,6 +64,8 @@ const ActionColumn = ({ row }) => {
 
     const onDelete = () => {
         dispatch(setDeleteMode('single'))
+        console.log('onDelete')
+        console.log([row.id])
         dispatch(setSelectedRow([row.id]))
     }
 
@@ -124,13 +126,18 @@ const ListTable = () => {
               sortable: false,
             },
             {
+              Header: 'Reservation Number',
+              accessor: 'reservation_id',
+              sortable: false,
+            },
+            {
               Header: 'Status',
               accessor: 'status',
               sortable: false,
             },
             {
               Header: 'Customer',
-              accessor: 'customersID',
+              accessor: 'customer_id',
               sortable: false,
             },
             {
@@ -161,6 +168,11 @@ const ListTable = () => {
             {
               Header: 'Deposit',
               accessor: 'deposit',
+              sortable: false,
+            },
+            {
+              Header: 'Created',
+              accessor: 'createdAt',
               sortable: false,
             },
             {

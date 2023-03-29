@@ -67,13 +67,24 @@ export const onCreateReservations = /* GraphQL */ `
   ) {
     onCreateReservations(filter: $filter) {
       id
+      reservation_id
       pickup_date
       return_date
       pickup_location
-      status
-      car
+      make
+      model
+      variant
       price
       deposit
+      status
+      customer_id
+      start_date
+      duration
+      end_date
+      class
+      test_1
+      test_2
+      customersID
       createdAt
       updatedAt
       _version
@@ -88,13 +99,24 @@ export const onUpdateReservations = /* GraphQL */ `
   ) {
     onUpdateReservations(filter: $filter) {
       id
+      reservation_id
       pickup_date
       return_date
       pickup_location
-      status
-      car
+      make
+      model
+      variant
       price
       deposit
+      status
+      customer_id
+      start_date
+      duration
+      end_date
+      class
+      test_1
+      test_2
+      customersID
       createdAt
       updatedAt
       _version
@@ -109,13 +131,24 @@ export const onDeleteReservations = /* GraphQL */ `
   ) {
     onDeleteReservations(filter: $filter) {
       id
+      reservation_id
       pickup_date
       return_date
       pickup_location
-      status
-      car
+      make
+      model
+      variant
       price
       deposit
+      status
+      customer_id
+      start_date
+      duration
+      end_date
+      class
+      test_1
+      test_2
+      customersID
       createdAt
       updatedAt
       _version
@@ -135,9 +168,30 @@ export const onCreateCustomers = /* GraphQL */ `
       email
       phone
       id_number
-      drivers_licence
-      salary
+      id_expiry
+      drivers_licence_expiry
       status
+      date_reviewed
+      address_1
+      address_2
+      city
+      province
+      postal_code
+      salary_nett
+      drivers_licence
+      id_file
+      drivers_licence_file
+      poa_fi
+      bank_statement_1_file
+      bank_statement_2_file
+      bank_statement_3_file
+      salary_slip_1_file
+      salary_slip_2_file
+      salary_slip_3_file
+      CustomersReservations {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -157,9 +211,30 @@ export const onUpdateCustomers = /* GraphQL */ `
       email
       phone
       id_number
-      drivers_licence
-      salary
+      id_expiry
+      drivers_licence_expiry
       status
+      date_reviewed
+      address_1
+      address_2
+      city
+      province
+      postal_code
+      salary_nett
+      drivers_licence
+      id_file
+      drivers_licence_file
+      poa_fi
+      bank_statement_1_file
+      bank_statement_2_file
+      bank_statement_3_file
+      salary_slip_1_file
+      salary_slip_2_file
+      salary_slip_3_file
+      CustomersReservations {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -179,9 +254,30 @@ export const onDeleteCustomers = /* GraphQL */ `
       email
       phone
       id_number
-      drivers_licence
-      salary
+      id_expiry
+      drivers_licence_expiry
       status
+      date_reviewed
+      address_1
+      address_2
+      city
+      province
+      postal_code
+      salary_nett
+      drivers_licence
+      id_file
+      drivers_licence_file
+      poa_fi
+      bank_statement_1_file
+      bank_statement_2_file
+      bank_statement_3_file
+      salary_slip_1_file
+      salary_slip_2_file
+      salary_slip_3_file
+      CustomersReservations {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version

@@ -7,21 +7,23 @@ import {
     setSelectedRow,
     setSelectedRows,
 } from '../store/stateSlice'
-import { deleteOrders, getOrders } from '../store/dataSlice'
+import { deleteData, getTableData } from '../store/dataSlice'
+import { DataStore } from 'aws-amplify'
+import { Reservations } from '../../../../models'
 
 const ListDeleteConfirmation = () => {
     const dispatch = useDispatch()
     const selectedRows = useSelector(
-        (state) => state.salesOrderList.state.selectedRows
+        (state) => state.reservationList.state.selectedRows
     )
     const selectedRow = useSelector(
-        (state) => state.salesOrderList.state.selectedRow
+        (state) => state.reservationList.state.selectedRow
     )
     const deleteMode = useSelector(
-        (state) => state.salesOrderList.state.deleteMode
+        (state) => state.reservationList.state.deleteMode
     )
     const tableData = useSelector(
-        (state) => state.salesOrderList.data.tableData
+        (state) => state.reservationList.data.tableData
     )
 
     const onDialogClose = () => {
@@ -35,22 +37,29 @@ const ListDeleteConfirmation = () => {
     const onDelete = async () => {
         dispatch(setDeleteMode(''))
 
-        if (deleteMode === 'single') {
-            const success = await deleteOrders({ id: selectedRow })
+        console.log('fuck onDelete '+selectedRow)
+
+        /*if (deleteMode === 'single') {
+            const success = await deleteData({ selectedRow })
+            console.log(success)
             deleteSucceed(success)
             dispatch(setSelectedRow([]))
         }
 
         if (deleteMode === 'batch') {
-            const success = await deleteOrders({ id: selectedRows })
+            const success = await deleteData({ selectedRows })
             deleteSucceed(success, selectedRows.length)
             dispatch(setSelectedRows([]))
-        }
+        }*/
+
+        const toDelete = DataStore.query(Reservations, '1ed06ea4-8a9e-4574-a565-df5af4b4546e');
+        console.log(toDelete)
+        DataStore.delete(toDelete);
     }
 
     const deleteSucceed = (success, orders) => {
         if (success) {
-            dispatch(getOrders(tableData))
+            dispatch(getTableData(tableData))
             toast.push(
                 <Notification
                     title={'Successfuly Deleted'}

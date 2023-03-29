@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiListReservations } from 'services/ReservationService';
+import { apiListReservations, apiDeleteReservations } from 'services/ReservationService';
 
 export const getTableData = createAsyncThunk(
     'reservationList/data/getTableData',
@@ -9,6 +9,11 @@ export const getTableData = createAsyncThunk(
         return response
     }
 )
+
+export const deleteData = async (data) => {
+  const response = await apiDeleteReservations(data)
+  return response
+}
 
 export const initialTableData = {
     total: 0,

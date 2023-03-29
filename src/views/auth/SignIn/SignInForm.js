@@ -14,6 +14,16 @@ import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import useAuth from 'utils/hooks/useAuth'
 
+/*import mockServer from '../../../mock'
+import appConfig from 'configs/app.config'
+import '../../../locales'
+
+const environment = process.env.NODE_ENV
+
+if (appConfig.enableMock) {
+    mockServer({ environment })
+}*/
+
 const validationSchema = Yup.object().shape({
     userName: Yup.string().required('Please enter your user name'),
     password: Yup.string().required('Please enter your password'),
@@ -55,7 +65,7 @@ const SignInForm = (props) => {
             <Formik
                 initialValues={{
                     userName: 'admin',
-                    password: '123Qwe',
+                    password: '',
                     rememberMe: true,
                 }}
                 validationSchema={validationSchema}

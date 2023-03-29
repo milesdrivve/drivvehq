@@ -12,13 +12,24 @@ type Cars @model @auth(rules: [{allow: public}]) {
 
 type Reservations @model @auth(rules: [{allow: public}]) {
   id: ID!
+  reservation_id: String
   pickup_date: String
   return_date: String
   pickup_location: String
-  status: String
-  car: String
+  make: String
+  model: String
+  variant: String
   price: Float
   deposit: Float
+  status: String
+  customer_id: String
+  start_date: AWSDate
+  duration: Int
+  end_date: AWSDate
+  class: String
+  test_1: AWSJSON
+  test_2: [String]
+  customersID: ID @index(name: "byCustomers")
 }
 
 type Customers @model @auth(rules: [{allow: public}]) {
@@ -28,7 +39,26 @@ type Customers @model @auth(rules: [{allow: public}]) {
   email: String
   phone: String
   id_number: String
-  drivers_licence: String
-  salary: String
+  id_expiry: AWSDate
+  drivers_licence_expiry: AWSDate
   status: String
-} 
+  date_reviewed: AWSDate
+  address_1: String
+  address_2: String
+  city: String
+  province: String
+  postal_code: String
+  salary_nett: String
+  drivers_licence: String
+  id_file: String
+  drivers_licence_file: String
+  poa_fi: String
+  bank_statement_1_file: String
+  bank_statement_2_file: String
+  bank_statement_3_file: String
+  salary_slip_1_file: String
+  salary_slip_2_file: String
+  salary_slip_3_file: String
+  CustomersReservations: [Reservations] @hasMany(indexName: "byCustomers", fields: ["id"])
+}
+ 
