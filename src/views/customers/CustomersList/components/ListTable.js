@@ -131,7 +131,7 @@ const ListTable = () => {
             },
             {
               Header: 'Reservations',
-              accessor: 'Reservation Count',
+              accessor: 'CustomerReservations.items[0].id',
               sortable: false,
             },
             {

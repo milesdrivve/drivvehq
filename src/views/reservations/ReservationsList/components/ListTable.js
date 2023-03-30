@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useMemo } from 'react'
 import { Badge, Tooltip } from 'components/ui'
 import { DataTable } from 'components/shared'
 import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi'
-//import NumberFormat from 'react-number-format'
+import NumberFormat from 'react-number-format'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTableData, setTableData } from '../store/dataSlice'
 import {
@@ -17,41 +17,21 @@ import { useNavigate } from 'react-router-dom'
 import cloneDeep from 'lodash/cloneDeep'
 import dayjs from 'dayjs'
 
-/*const orderStatusColor = {
-    0: {
-        label: 'New',
-        dotClass: 'bg-emerald-500',
-        textClass: 'text-emerald-500',
-    },
-    1: {
-        label: 'Pending',
-        dotClass: 'bg-amber-500',
-        textClass: 'text-amber-500',
-    },
-    2: {
-        label: 'Declined',
-        dotClass: 'bg-red-500',
-        textClass: 'text-red-500'
-    },
-}*/
+const CustomerReservationsColumn = ({ row }) => {
+  const navigate = useNavigate()
 
-/*const OrderColumn = ({ row }) => {
-    const { textTheme } = useThemeClass()
-    const navigate = useNavigate()
-
-    const onView = useCallback(() => {
-        navigate(`/app/reservations/reservation-details?id=8`)
-    }, [navigate, row])
+    const onEdit = () => {
+      navigate(`/app/customers/customer-edit/${row.customer_id}`)
+    }
 
     return (
-        <span
-            className={`cursor-pointer select-none font-semibold hover:${textTheme}`}
-            onClick={onView}
-        >
-            #{row.id}
-        </span>
+      <span style={{ textDecoration: "underline", cursor: "pointer" }}
+        onClick={onEdit}
+      >
+        {row.customer_id}
+      </span>
     )
-}*/
+}
 
 const ActionColumn = ({ row }) => {
     const dispatch = useDispatch()
@@ -139,7 +119,13 @@ const ListTable = () => {
               Header: 'Customer',
               accessor: 'customer_id',
               sortable: false,
+              Cell: (props) => <CustomerReservationsColumn row={props.row.original} />,
             },
+            /*{
+              Header: 'Customer',
+              accessor: 'customer_id',
+              sortable: false,
+            },*/
             {
               Header: 'Pickup Date',
               accessor: 'pickup_date',
@@ -164,11 +150,37 @@ const ListTable = () => {
               Header: 'Price',
               accessor: 'price',
               sortable: false,
+              Cell: (props) => {
+                const { price } = props.row.original
+                return (
+                    <NumberFormat
+                        displayType="text"
+                        value={(
+                            Math.round(price * 100) / 100
+                        ).toFixed(2)}
+                        prefix={'R'}
+                        thousandSeparator={true}
+                    />
+                )
+              },
             },
             {
               Header: 'Deposit',
               accessor: 'deposit',
               sortable: false,
+              Cell: (props) => {
+                const { deposit } = props.row.original
+                return (
+                    <NumberFormat
+                        displayType="text"
+                        value={(
+                            Math.round(deposit * 100) / 100
+                        ).toFixed(2)}
+                        prefix={'R'}
+                        thousandSeparator={true}
+                    />
+                )
+              },
             },
             {
               Header: 'Created',

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { ConfirmDialog } from 'components/shared'
 import { DataStore } from 'aws-amplify'
 import { Customers } from '../../../models'
 import { AdaptableCard } from 'components/shared'
 import CustomersUpdateForm from 'ui-components/CustomersUpdateForm'
 import FileUpload from '../CustomerEdit/components/FileUpload'
-import { toast, Notification, Tabs } from 'components/ui'
+import StatusConfirmation from '../CustomerEdit/components/StatusConfirmation'
+import { toast, Notification, Tabs, Button, Dialog } from 'components/ui'
 import { useLocation, useNavigate } from 'react-router-dom'
+//import { ConfirmDialog, confirmDialog } from 'components/shared'
 
 import { ThemeProvider, createTheme } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
@@ -47,6 +50,32 @@ const CustomerEdit = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
+  const [dialogIsOpen, setIsOpen] = useState(false)
+
+  const statusUpdateTrigger = (fields, customer) => {
+    console.log(fields)
+    console.log(customer)
+    openDialog();
+    //setTrigger((trigger) => trigger + 1);
+    //onStatusUpdate()
+  }
+
+  const openDialog = () => {
+    setIsOpen(true)
+  }
+
+  const onDialogClose = (e) => {
+      console.log('onDialogClose', e)
+      setIsOpen(false)
+  }
+
+  const onDialogOk = (e) => {
+      console.log('onDialogOk', e)
+      setIsOpen(false)
+  }
+
+  const [trigger, setTrigger] = useState(0);
+
   useEffect(() => {
     const param = location.pathname.substring(
       location.pathname.lastIndexOf('/') + 1
@@ -81,8 +110,36 @@ const CustomerEdit = () => {
                           <CustomersUpdateForm
                             customers={customer}
                             onSuccess={(fields) => {
-                            openNotification("Success", "Customer updated", "success")
-                          }} />
+                              statusUpdateTrigger( {fields}, {customer} )
+                              //setTrigger((trigger) => trigger + 1)
+                              openNotification("Success", "Customer updated", "success")
+                            }}
+                          />
+                         {/*} <StatusConfirmation trigger={trigger}{fields} {customer}  /> */}
+                         <Dialog
+                isOpen={dialogIsOpen}
+                onClose={onDialogClose}
+                onRequestClose={onDialogClose}
+            >
+                <h5 className="mb-4">Dialog Title</h5>
+                <p>
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable.
+                </p>
+                <div className="text-right mt-6">
+                    <Button
+                        className="ltr:mr-2 rtl:ml-2"
+                        onClick={onDialogClose}
+                    >
+                        Cancel
+                    </Button>
+                    <Button onClick={onDialogOk}>
+                        Okay
+                    </Button>
+                </div>
+            </Dialog>
                         </ThemeProvider>
                         </div>
                       </div>
