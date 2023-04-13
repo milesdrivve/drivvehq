@@ -32,6 +32,7 @@ export default function CustomersUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
+    id: "",
     status: undefined,
     first_name: "",
     last_name: "",
@@ -58,6 +59,7 @@ export default function CustomersUpdateForm(props) {
     salary_slip_2_file: "",
     salary_slip_3_file: "",
   };
+  const [id, setId] = React.useState(initialValues.id);
   const [status, setStatus] = React.useState(initialValues.status);
   const [first_name, setFirst_name] = React.useState(initialValues.first_name);
   const [last_name, setLast_name] = React.useState(initialValues.last_name);
@@ -112,6 +114,7 @@ export default function CustomersUpdateForm(props) {
     const cleanValues = customersRecord
       ? { ...initialValues, ...customersRecord }
       : initialValues;
+    setId(cleanValues.id);
     setStatus(cleanValues.status);
     setFirst_name(cleanValues.first_name);
     setLast_name(cleanValues.last_name);
@@ -151,6 +154,7 @@ export default function CustomersUpdateForm(props) {
   }, [idProp, customers]);
   React.useEffect(resetStateValues, [customersRecord]);
   const validations = {
+    id: [{ type: "Required" }],
     status: [],
     first_name: [],
     last_name: [],
@@ -202,6 +206,7 @@ export default function CustomersUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
+          id,
           status,
           first_name,
           last_name,
@@ -273,6 +278,55 @@ export default function CustomersUpdateForm(props) {
       {...getOverrideProps(overrides, "CustomersUpdateForm")}
       {...rest}
     >
+      <TextField
+        label="Id"
+        isRequired={true}
+        isReadOnly={true}
+        value={id}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              id: value,
+              status,
+              first_name,
+              last_name,
+              email,
+              phone,
+              id_number,
+              id_expiry,
+              drivers_licence,
+              drivers_licence_expiry,
+              salary_nett,
+              date_reviewed,
+              address_1,
+              address_2,
+              city,
+              province,
+              postal_code,
+              id_file,
+              drivers_licence_file,
+              poa_fi,
+              bank_statement_1_file,
+              bank_statement_2_file,
+              bank_statement_3_file,
+              salary_slip_1_file,
+              salary_slip_2_file,
+              salary_slip_3_file,
+            };
+            const result = onChange(modelFields);
+            value = result?.id ?? value;
+          }
+          if (errors.id?.hasError) {
+            runValidationTasks("id", value);
+          }
+          setId(value);
+        }}
+        onBlur={() => runValidationTasks("id", id)}
+        errorMessage={errors.id?.errorMessage}
+        hasError={errors.id?.hasError}
+        {...getOverrideProps(overrides, "id")}
+      ></TextField>
       <SelectField
         label="Status"
         placeholder="Select"
@@ -282,6 +336,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status: value,
               first_name,
               last_name,
@@ -384,6 +439,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name: value,
               last_name,
@@ -432,6 +488,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name: value,
@@ -480,6 +537,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -528,6 +586,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -576,6 +635,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -625,6 +685,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -673,6 +734,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -722,6 +784,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -772,6 +835,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -821,6 +885,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -877,6 +942,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -925,6 +991,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -973,6 +1040,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1021,6 +1089,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1115,6 +1184,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1163,6 +1233,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1211,6 +1282,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1261,6 +1333,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1309,6 +1382,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1359,6 +1433,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1409,6 +1484,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1459,6 +1535,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1509,6 +1586,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,
@@ -1559,6 +1637,7 @@ export default function CustomersUpdateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              id,
               status,
               first_name,
               last_name,

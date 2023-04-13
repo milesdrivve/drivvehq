@@ -27,6 +27,12 @@
     "categories": {
       "api": {
         "drivveadmin": {}
+      },
+      "auth": {
+        "drivveadmin6da333ac": {}
+      },
+      "storage": {
+        "customerdocuments": {}
       }
     }
   }

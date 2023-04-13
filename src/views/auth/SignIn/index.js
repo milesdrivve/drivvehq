@@ -1,5 +1,14 @@
 import React from 'react'
 import SignInForm from './SignInForm'
+import '../../../locales'
+import mockServer from '../../../mock'
+import appConfig from 'configs/app.config'
+
+const environment = process.env.NODE_ENV
+
+/*if (appConfig.enableMock) {
+    mockServer({ environment })
+}*/
 
 const SignIn = () => {
     return (

@@ -14,6 +14,7 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type CustomersUpdateFormInputValues = {
+    id?: string;
     status?: string;
     first_name?: string;
     last_name?: string;
@@ -41,6 +42,7 @@ export declare type CustomersUpdateFormInputValues = {
     salary_slip_3_file?: string;
 };
 export declare type CustomersUpdateFormValidationValues = {
+    id?: ValidationFunction<string>;
     status?: ValidationFunction<string>;
     first_name?: ValidationFunction<string>;
     last_name?: ValidationFunction<string>;
@@ -70,6 +72,7 @@ export declare type CustomersUpdateFormValidationValues = {
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type CustomersUpdateFormOverridesProps = {
     CustomersUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    id?: PrimitiveOverrideProps<TextFieldProps>;
     status?: PrimitiveOverrideProps<SelectFieldProps>;
     SectionalElement0?: PrimitiveOverrideProps<DividerProps>;
     SectionalElement1?: PrimitiveOverrideProps<HeadingProps>;

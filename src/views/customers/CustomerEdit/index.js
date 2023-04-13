@@ -9,6 +9,7 @@ import StatusConfirmation from '../CustomerEdit/components/StatusConfirmation'
 import { toast, Notification, Tabs, Button, Dialog } from 'components/ui'
 import { useLocation, useNavigate } from 'react-router-dom'
 //import { ConfirmDialog, confirmDialog } from 'components/shared'
+import { triggerUpdate } from 'components/js/CustomerFunctions'
 
 import { ThemeProvider, createTheme } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
@@ -55,9 +56,11 @@ const CustomerEdit = () => {
   const statusUpdateTrigger = (fields, customer) => {
     console.log(fields)
     console.log(customer)
+
+    //const customerObj = JSON.parse(customer)
+    //console.log(customerObj)
+
     openDialog();
-    //setTrigger((trigger) => trigger + 1);
-    //onStatusUpdate()
   }
 
   const openDialog = () => {
@@ -71,6 +74,7 @@ const CustomerEdit = () => {
 
   const onDialogOk = (e) => {
       console.log('onDialogOk', e)
+      triggerUpdate(1, 'New')
       setIsOpen(false)
   }
 
@@ -117,29 +121,29 @@ const CustomerEdit = () => {
                           />
                          {/*} <StatusConfirmation trigger={trigger}{fields} {customer}  /> */}
                          <Dialog
-                isOpen={dialogIsOpen}
-                onClose={onDialogClose}
-                onRequestClose={onDialogClose}
-            >
-                <h5 className="mb-4">Dialog Title</h5>
-                <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't
-                    look even slightly believable.
-                </p>
-                <div className="text-right mt-6">
-                    <Button
-                        className="ltr:mr-2 rtl:ml-2"
-                        onClick={onDialogClose}
-                    >
-                        Cancel
-                    </Button>
-                    <Button onClick={onDialogOk}>
-                        Okay
-                    </Button>
-                </div>
-            </Dialog>
+                            isOpen={dialogIsOpen}
+                            onClose={onDialogClose}
+                            onRequestClose={onDialogClose}
+                        >
+                            <h5 className="mb-4">Dialog Title</h5>
+                            <p>
+                                There are many variations of passages of Lorem Ipsum
+                                available, but the majority have suffered alteration in some
+                                form, by injected humour, or randomised words which don't
+                                look even slightly believable.
+                            </p>
+                            <div className="text-right mt-6">
+                                <Button
+                                    className="ltr:mr-2 rtl:ml-2"
+                                    onClick={onDialogClose}
+                                >
+                                    Cancel
+                                </Button>
+                                <Button onClick={onDialogOk}>
+                                    Okay
+                                </Button>
+                            </div>
+                        </Dialog>
                         </ThemeProvider>
                         </div>
                       </div>

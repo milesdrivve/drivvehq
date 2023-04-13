@@ -1,0 +1,18 @@
+{
+  "resourceName": "customerdocuments",
+  "policyUUID": "6bf87484",
+  "bucketName": "customerdocuments",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

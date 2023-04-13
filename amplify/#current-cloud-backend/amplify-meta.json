@@ -23,11 +23,11 @@
             }
           ],
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 30,
               "description": "api key description"
-            }
+            },
+            "authenticationType": "API_KEY"
           }
         },
         "GraphQLAPIIdOutput": "pkazuzpe3rhobhukvn4bya675u",
@@ -36,12 +36,70 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2023-03-29T15:38:29.551Z",
+      "lastPushTimeStamp": "2023-04-13T14:14:30.960Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-drivveadmin-dev-81044-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apidrivveadmin"
+      }
+    }
+  },
+  "auth": {
+    "drivveadmin6da333ac": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
       },
-      "lastPushDirHash": "pQHTe+z35s9WK/x2aizEXmz4Ijo="
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "eu-west-1_eZcZQGmHM",
+        "AppClientIDWeb": "2l7pjt3gaaifhq8pke34j8cc5p",
+        "AppClientID": "6ljqddouqtcg90fafea4s7ctqq",
+        "IdentityPoolId": "eu-west-1:6169da5c-25fb-4760-bdab-992630df828b",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-1:275133813552:userpool/eu-west-1_eZcZQGmHM",
+        "IdentityPoolName": "drivveadmin6da333ac_identitypool_6da333ac__dev",
+        "UserPoolName": "drivveadmin6da333ac_userpool_6da333ac"
+      },
+      "lastPushTimeStamp": "2023-04-13T14:14:31.006Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-drivveadmin-dev-81044-deployment/amplify-cfn-templates/auth/drivveadmin6da333ac-cloudformation-template.json",
+        "logicalId": "authdrivveadmin6da333ac"
+      },
+      "lastPushDirHash": "oBmrcEY8Ne2EOZMrUmHAnnLbLRg="
+    }
+  },
+  "storage": {
+    "customerdocuments": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "output": {
+        "BucketName": "customerdocuments81044-dev",
+        "Region": "eu-west-1"
+      },
+      "lastPushTimeStamp": "2023-04-13T14:14:30.964Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-drivveadmin-dev-81044-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagecustomerdocuments"
+      }
     }
   }
 }
